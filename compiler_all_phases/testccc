@@ -1,0 +1,14 @@
+class program{
+    void main(){
+        int a ;
+        boolean bol;
+        int c ;
+        a = c;
+        bol = c ;
+        a = 2;
+        c = 'z';
+        bol = false ;
+        a = false ;
+        a = c + bol ; // inam lazeme check kone???
+}
+}

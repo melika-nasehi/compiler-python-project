@@ -1,0 +1,3364 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    START
+
+Grammar
+
+Rule 0     S' -> Program
+Rule 1     Program -> CLASS PROGRAM LBRACE FieldDecls MethodDecls RBRACE
+Rule 2     FieldDecls -> FieldDecl FieldDecls
+Rule 3     FieldDecls -> empty
+Rule 4     FieldDecl -> Type IDENTIFIER SEMICOLON
+Rule 5     FieldDecl -> Type IDENTIFIER LBRACKET IntLiteral RBRACKET SEMICOLON
+Rule 6     MethodDecls -> MethodDecl MethodDecls
+Rule 7     MethodDecls -> empty
+Rule 8     MethodDecl -> Type IDENTIFIER LPAREN ParamList RPAREN Block
+Rule 9     MethodDecl -> VOID IDENTIFIER LPAREN RPAREN Block
+Rule 10    ParamList -> Type IDENTIFIER
+Rule 11    ParamList -> Type IDENTIFIER COMMA ParamList
+Rule 12    Block -> LBRACE VarDecls Statements RBRACE
+Rule 13    VarDecls -> VarDecl VarDecls
+Rule 14    VarDecls -> empty
+Rule 15    VarDecl -> Type IDENTIFIER SEMICOLON
+Rule 16    Type -> INT
+Rule 17    Type -> BOOLEAN
+Rule 18    Statements -> Statement Statements
+Rule 19    Statements -> empty
+Rule 20    Statement -> Location ASSIGN Expression SEMICOLON
+Rule 21    Statement -> MethodCall SEMICOLON
+Rule 22    Statement -> IF LPAREN Expression RPAREN Block
+Rule 23    Statement -> IF LPAREN Expression RPAREN Block ELSE Block
+Rule 24    Statement -> WHILE LPAREN Expression RPAREN Block
+Rule 25    Statement -> RETURN Expression SEMICOLON
+Rule 26    Statement -> RETURN SEMICOLON
+Rule 27    Statement -> BREAK SEMICOLON
+Rule 28    Statement -> CONTINUE SEMICOLON
+Rule 29    Statement -> Block
+Rule 30    MethodCall -> IDENTIFIER LPAREN RPAREN
+Rule 31    MethodCall -> IDENTIFIER LPAREN ExpressionList RPAREN
+Rule 32    MethodCall -> CALLOUT LPAREN StringLiteral RPAREN
+Rule 33    MethodCall -> CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN
+Rule 34    Location -> IDENTIFIER
+Rule 35    Location -> IDENTIFIER LBRACKET Expression RBRACKET
+Rule 36    ExpressionList -> Expression
+Rule 37    ExpressionList -> Expression COMMA ExpressionList
+Rule 38    Expression -> Location
+Rule 39    Expression -> MethodCall
+Rule 40    Expression -> Literal
+Rule 41    Expression -> Expression BinOp Expression
+Rule 42    Expression -> MINUS Expression
+Rule 43    Expression -> NOT Expression
+Rule 44    Expression -> LPAREN Expression RPAREN
+Rule 45    CalloutArgList -> CalloutArg
+Rule 46    CalloutArgList -> CalloutArg COMMA CalloutArgList
+Rule 47    CalloutArg -> Expression
+Rule 48    CalloutArg -> StringLiteral
+Rule 49    BinOp -> ArithOp
+Rule 50    BinOp -> RelOp
+Rule 51    BinOp -> EqOp
+Rule 52    BinOp -> CondOp
+Rule 53    ArithOp -> PLUS
+Rule 54    ArithOp -> MINUS
+Rule 55    ArithOp -> MULTIPLY
+Rule 56    ArithOp -> DIVIDE
+Rule 57    ArithOp -> MODULO
+Rule 58    ArithOp -> SHIFT_L
+Rule 59    ArithOp -> SHIFT_R
+Rule 60    ArithOp -> LSHIFT_R
+Rule 61    RelOp -> GREATER
+Rule 62    RelOp -> LESS
+Rule 63    RelOp -> GREATER_EQUAL
+Rule 64    RelOp -> LESS_EQUAL
+Rule 65    EqOp -> EQUAL
+Rule 66    EqOp -> NOT_EQUAL
+Rule 67    CondOp -> LOGICAL_AND
+Rule 68    CondOp -> LOGICAL_OR
+Rule 69    Literal -> IntLiteral
+Rule 70    Literal -> CharLiteral
+Rule 71    Literal -> BoolLiteral
+Rule 72    IntLiteral -> DecimalLiteral
+Rule 73    IntLiteral -> HexLiteral
+Rule 74    DecimalLiteral -> NUMBER
+Rule 75    HexLiteral -> HEX_NUMBER
+Rule 76    BoolLiteral -> TRUE
+Rule 77    BoolLiteral -> FALSE
+Rule 78    CharLiteral -> CHAR_LITERAL
+Rule 79    StringLiteral -> STRING_LITERAL
+Rule 80    empty -> <empty>
+
+Terminals, with rules where they appear
+
+ASSIGN               : 20
+BOOLEAN              : 17
+BREAK                : 27
+CALLOUT              : 32 33
+CHAR_LITERAL         : 78
+CLASS                : 1
+COMMA                : 11 33 37 46
+CONTINUE             : 28
+DIVIDE               : 56
+ELSE                 : 23
+EQUAL                : 65
+FALSE                : 77
+GREATER              : 61
+GREATER_EQUAL        : 63
+HEX_NUMBER           : 75
+IDENTIFIER           : 4 5 8 9 10 11 15 30 31 34 35
+IF                   : 22 23
+INT                  : 16
+LBRACE               : 1 12
+LBRACKET             : 5 35
+LESS                 : 62
+LESS_EQUAL           : 64
+LOGICAL_AND          : 67
+LOGICAL_OR           : 68
+LPAREN               : 8 9 22 23 24 30 31 32 33 44
+LSHIFT_R             : 60
+MINUS                : 42 54
+MODULO               : 57
+MULTIPLY             : 55
+NOT                  : 43
+NOT_EQUAL            : 66
+NUMBER               : 74
+PLUS                 : 53
+PROGRAM              : 1
+RBRACE               : 1 12
+RBRACKET             : 5 35
+RETURN               : 25 26
+RPAREN               : 8 9 22 23 24 30 31 32 33 44
+SEMICOLON            : 4 5 15 20 21 25 26 27 28
+SHIFT_L              : 58
+SHIFT_R              : 59
+START                : 
+STRING_LITERAL       : 79
+TRUE                 : 76
+VOID                 : 9
+WHILE                : 24
+error                : 
+
+Nonterminals, with rules where they appear
+
+ArithOp              : 49
+BinOp                : 41
+Block                : 8 9 22 23 23 24 29
+BoolLiteral          : 71
+CalloutArg           : 45 46
+CalloutArgList       : 33 46
+CharLiteral          : 70
+CondOp               : 52
+DecimalLiteral       : 72
+EqOp                 : 51
+Expression           : 20 22 23 24 25 35 36 37 41 41 42 43 44 47
+ExpressionList       : 31 37
+FieldDecl            : 2
+FieldDecls           : 1 2
+HexLiteral           : 73
+IntLiteral           : 5 69
+Literal              : 40
+Location             : 20 38
+MethodCall           : 21 39
+MethodDecl           : 6
+MethodDecls          : 1 6
+ParamList            : 8 11
+Program              : 0
+RelOp                : 50
+Statement            : 18
+Statements           : 12 18
+StringLiteral        : 32 33 48
+Type                 : 4 5 8 10 11 15
+VarDecl              : 13
+VarDecls             : 12 13
+empty                : 3 7 14 19
+
+Parsing method: SLR
+
+state 0
+
+    (0) S' -> . Program
+    (1) Program -> . CLASS PROGRAM LBRACE FieldDecls MethodDecls RBRACE
+
+    CLASS           shift and go to state 2
+
+    Program                        shift and go to state 1
+
+state 1
+
+    (0) S' -> Program .
+
+
+
+state 2
+
+    (1) Program -> CLASS . PROGRAM LBRACE FieldDecls MethodDecls RBRACE
+
+    PROGRAM         shift and go to state 3
+
+
+state 3
+
+    (1) Program -> CLASS PROGRAM . LBRACE FieldDecls MethodDecls RBRACE
+
+    LBRACE          shift and go to state 4
+
+
+state 4
+
+    (1) Program -> CLASS PROGRAM LBRACE . FieldDecls MethodDecls RBRACE
+    (2) FieldDecls -> . FieldDecl FieldDecls
+    (3) FieldDecls -> . empty
+    (4) FieldDecl -> . Type IDENTIFIER SEMICOLON
+    (5) FieldDecl -> . Type IDENTIFIER LBRACKET IntLiteral RBRACKET SEMICOLON
+    (80) empty -> .
+    (16) Type -> . INT
+    (17) Type -> . BOOLEAN
+
+  ! shift/reduce conflict for INT resolved as shift
+  ! shift/reduce conflict for BOOLEAN resolved as shift
+    VOID            reduce using rule 80 (empty -> .)
+    RBRACE          reduce using rule 80 (empty -> .)
+    IF              reduce using rule 80 (empty -> .)
+    WHILE           reduce using rule 80 (empty -> .)
+    RETURN          reduce using rule 80 (empty -> .)
+    BREAK           reduce using rule 80 (empty -> .)
+    CONTINUE        reduce using rule 80 (empty -> .)
+    LBRACE          reduce using rule 80 (empty -> .)
+    IDENTIFIER      reduce using rule 80 (empty -> .)
+    CALLOUT         reduce using rule 80 (empty -> .)
+    INT             shift and go to state 9
+    BOOLEAN         shift and go to state 10
+
+  ! INT             [ reduce using rule 80 (empty -> .) ]
+  ! BOOLEAN         [ reduce using rule 80 (empty -> .) ]
+
+    FieldDecls                     shift and go to state 5
+    FieldDecl                      shift and go to state 6
+    empty                          shift and go to state 7
+    Type                           shift and go to state 8
+
+state 5
+
+    (1) Program -> CLASS PROGRAM LBRACE FieldDecls . MethodDecls RBRACE
+    (6) MethodDecls -> . MethodDecl MethodDecls
+    (7) MethodDecls -> . empty
+    (8) MethodDecl -> . Type IDENTIFIER LPAREN ParamList RPAREN Block
+    (9) MethodDecl -> . VOID IDENTIFIER LPAREN RPAREN Block
+    (80) empty -> .
+    (16) Type -> . INT
+    (17) Type -> . BOOLEAN
+
+  ! shift/reduce conflict for VOID resolved as shift
+  ! shift/reduce conflict for INT resolved as shift
+  ! shift/reduce conflict for BOOLEAN resolved as shift
+    VOID            shift and go to state 15
+    RBRACE          reduce using rule 80 (empty -> .)
+    IF              reduce using rule 80 (empty -> .)
+    WHILE           reduce using rule 80 (empty -> .)
+    RETURN          reduce using rule 80 (empty -> .)
+    BREAK           reduce using rule 80 (empty -> .)
+    CONTINUE        reduce using rule 80 (empty -> .)
+    LBRACE          reduce using rule 80 (empty -> .)
+    IDENTIFIER      reduce using rule 80 (empty -> .)
+    CALLOUT         reduce using rule 80 (empty -> .)
+    INT             shift and go to state 9
+    BOOLEAN         shift and go to state 10
+
+  ! INT             [ reduce using rule 80 (empty -> .) ]
+  ! BOOLEAN         [ reduce using rule 80 (empty -> .) ]
+  ! VOID            [ reduce using rule 80 (empty -> .) ]
+
+    MethodDecls                    shift and go to state 11
+    MethodDecl                     shift and go to state 12
+    empty                          shift and go to state 13
+    Type                           shift and go to state 14
+
+state 6
+
+    (2) FieldDecls -> FieldDecl . FieldDecls
+    (2) FieldDecls -> . FieldDecl FieldDecls
+    (3) FieldDecls -> . empty
+    (4) FieldDecl -> . Type IDENTIFIER SEMICOLON
+    (5) FieldDecl -> . Type IDENTIFIER LBRACKET IntLiteral RBRACKET SEMICOLON
+    (80) empty -> .
+    (16) Type -> . INT
+    (17) Type -> . BOOLEAN
+
+  ! shift/reduce conflict for INT resolved as shift
+  ! shift/reduce conflict for BOOLEAN resolved as shift
+    VOID            reduce using rule 80 (empty -> .)
+    RBRACE          reduce using rule 80 (empty -> .)
+    IF              reduce using rule 80 (empty -> .)
+    WHILE           reduce using rule 80 (empty -> .)
+    RETURN          reduce using rule 80 (empty -> .)
+    BREAK           reduce using rule 80 (empty -> .)
+    CONTINUE        reduce using rule 80 (empty -> .)
+    LBRACE          reduce using rule 80 (empty -> .)
+    IDENTIFIER      reduce using rule 80 (empty -> .)
+    CALLOUT         reduce using rule 80 (empty -> .)
+    INT             shift and go to state 9
+    BOOLEAN         shift and go to state 10
+
+  ! INT             [ reduce using rule 80 (empty -> .) ]
+  ! BOOLEAN         [ reduce using rule 80 (empty -> .) ]
+
+    FieldDecl                      shift and go to state 6
+    FieldDecls                     shift and go to state 16
+    empty                          shift and go to state 7
+    Type                           shift and go to state 8
+
+state 7
+
+    (3) FieldDecls -> empty .
+
+    INT             reduce using rule 3 (FieldDecls -> empty .)
+    BOOLEAN         reduce using rule 3 (FieldDecls -> empty .)
+    VOID            reduce using rule 3 (FieldDecls -> empty .)
+    RBRACE          reduce using rule 3 (FieldDecls -> empty .)
+
+
+state 8
+
+    (4) FieldDecl -> Type . IDENTIFIER SEMICOLON
+    (5) FieldDecl -> Type . IDENTIFIER LBRACKET IntLiteral RBRACKET SEMICOLON
+
+    IDENTIFIER      shift and go to state 17
+
+
+state 9
+
+    (16) Type -> INT .
+
+    IDENTIFIER      reduce using rule 16 (Type -> INT .)
+
+
+state 10
+
+    (17) Type -> BOOLEAN .
+
+    IDENTIFIER      reduce using rule 17 (Type -> BOOLEAN .)
+
+
+state 11
+
+    (1) Program -> CLASS PROGRAM LBRACE FieldDecls MethodDecls . RBRACE
+
+    RBRACE          shift and go to state 18
+
+
+state 12
+
+    (6) MethodDecls -> MethodDecl . MethodDecls
+    (6) MethodDecls -> . MethodDecl MethodDecls
+    (7) MethodDecls -> . empty
+    (8) MethodDecl -> . Type IDENTIFIER LPAREN ParamList RPAREN Block
+    (9) MethodDecl -> . VOID IDENTIFIER LPAREN RPAREN Block
+    (80) empty -> .
+    (16) Type -> . INT
+    (17) Type -> . BOOLEAN
+
+  ! shift/reduce conflict for VOID resolved as shift
+  ! shift/reduce conflict for INT resolved as shift
+  ! shift/reduce conflict for BOOLEAN resolved as shift
+    VOID            shift and go to state 15
+    RBRACE          reduce using rule 80 (empty -> .)
+    IF              reduce using rule 80 (empty -> .)
+    WHILE           reduce using rule 80 (empty -> .)
+    RETURN          reduce using rule 80 (empty -> .)
+    BREAK           reduce using rule 80 (empty -> .)
+    CONTINUE        reduce using rule 80 (empty -> .)
+    LBRACE          reduce using rule 80 (empty -> .)
+    IDENTIFIER      reduce using rule 80 (empty -> .)
+    CALLOUT         reduce using rule 80 (empty -> .)
+    INT             shift and go to state 9
+    BOOLEAN         shift and go to state 10
+
+  ! INT             [ reduce using rule 80 (empty -> .) ]
+  ! BOOLEAN         [ reduce using rule 80 (empty -> .) ]
+  ! VOID            [ reduce using rule 80 (empty -> .) ]
+
+    MethodDecl                     shift and go to state 12
+    MethodDecls                    shift and go to state 19
+    empty                          shift and go to state 13
+    Type                           shift and go to state 14
+
+state 13
+
+    (7) MethodDecls -> empty .
+
+    RBRACE          reduce using rule 7 (MethodDecls -> empty .)
+
+
+state 14
+
+    (8) MethodDecl -> Type . IDENTIFIER LPAREN ParamList RPAREN Block
+
+    IDENTIFIER      shift and go to state 20
+
+
+state 15
+
+    (9) MethodDecl -> VOID . IDENTIFIER LPAREN RPAREN Block
+
+    IDENTIFIER      shift and go to state 21
+
+
+state 16
+
+    (2) FieldDecls -> FieldDecl FieldDecls .
+
+    INT             reduce using rule 2 (FieldDecls -> FieldDecl FieldDecls .)
+    BOOLEAN         reduce using rule 2 (FieldDecls -> FieldDecl FieldDecls .)
+    VOID            reduce using rule 2 (FieldDecls -> FieldDecl FieldDecls .)
+    RBRACE          reduce using rule 2 (FieldDecls -> FieldDecl FieldDecls .)
+
+
+state 17
+
+    (4) FieldDecl -> Type IDENTIFIER . SEMICOLON
+    (5) FieldDecl -> Type IDENTIFIER . LBRACKET IntLiteral RBRACKET SEMICOLON
+
+    SEMICOLON       shift and go to state 22
+    LBRACKET        shift and go to state 23
+
+
+state 18
+
+    (1) Program -> CLASS PROGRAM LBRACE FieldDecls MethodDecls RBRACE .
+
+    $end            reduce using rule 1 (Program -> CLASS PROGRAM LBRACE FieldDecls MethodDecls RBRACE .)
+
+
+state 19
+
+    (6) MethodDecls -> MethodDecl MethodDecls .
+
+    RBRACE          reduce using rule 6 (MethodDecls -> MethodDecl MethodDecls .)
+
+
+state 20
+
+    (8) MethodDecl -> Type IDENTIFIER . LPAREN ParamList RPAREN Block
+
+    LPAREN          shift and go to state 24
+
+
+state 21
+
+    (9) MethodDecl -> VOID IDENTIFIER . LPAREN RPAREN Block
+
+    LPAREN          shift and go to state 25
+
+
+state 22
+
+    (4) FieldDecl -> Type IDENTIFIER SEMICOLON .
+
+    INT             reduce using rule 4 (FieldDecl -> Type IDENTIFIER SEMICOLON .)
+    BOOLEAN         reduce using rule 4 (FieldDecl -> Type IDENTIFIER SEMICOLON .)
+    VOID            reduce using rule 4 (FieldDecl -> Type IDENTIFIER SEMICOLON .)
+    RBRACE          reduce using rule 4 (FieldDecl -> Type IDENTIFIER SEMICOLON .)
+
+
+state 23
+
+    (5) FieldDecl -> Type IDENTIFIER LBRACKET . IntLiteral RBRACKET SEMICOLON
+    (72) IntLiteral -> . DecimalLiteral
+    (73) IntLiteral -> . HexLiteral
+    (74) DecimalLiteral -> . NUMBER
+    (75) HexLiteral -> . HEX_NUMBER
+
+    NUMBER          shift and go to state 29
+    HEX_NUMBER      shift and go to state 30
+
+    IntLiteral                     shift and go to state 26
+    DecimalLiteral                 shift and go to state 27
+    HexLiteral                     shift and go to state 28
+
+state 24
+
+    (8) MethodDecl -> Type IDENTIFIER LPAREN . ParamList RPAREN Block
+    (10) ParamList -> . Type IDENTIFIER
+    (11) ParamList -> . Type IDENTIFIER COMMA ParamList
+    (16) Type -> . INT
+    (17) Type -> . BOOLEAN
+
+    INT             shift and go to state 9
+    BOOLEAN         shift and go to state 10
+
+    Type                           shift and go to state 31
+    ParamList                      shift and go to state 32
+
+state 25
+
+    (9) MethodDecl -> VOID IDENTIFIER LPAREN . RPAREN Block
+
+    RPAREN          shift and go to state 33
+
+
+state 26
+
+    (5) FieldDecl -> Type IDENTIFIER LBRACKET IntLiteral . RBRACKET SEMICOLON
+
+    RBRACKET        shift and go to state 34
+
+
+state 27
+
+    (72) IntLiteral -> DecimalLiteral .
+
+    RBRACKET        reduce using rule 72 (IntLiteral -> DecimalLiteral .)
+    SEMICOLON       reduce using rule 72 (IntLiteral -> DecimalLiteral .)
+    RPAREN          reduce using rule 72 (IntLiteral -> DecimalLiteral .)
+    COMMA           reduce using rule 72 (IntLiteral -> DecimalLiteral .)
+    PLUS            reduce using rule 72 (IntLiteral -> DecimalLiteral .)
+    MINUS           reduce using rule 72 (IntLiteral -> DecimalLiteral .)
+    MULTIPLY        reduce using rule 72 (IntLiteral -> DecimalLiteral .)
+    DIVIDE          reduce using rule 72 (IntLiteral -> DecimalLiteral .)
+    MODULO          reduce using rule 72 (IntLiteral -> DecimalLiteral .)
+    SHIFT_L         reduce using rule 72 (IntLiteral -> DecimalLiteral .)
+    SHIFT_R         reduce using rule 72 (IntLiteral -> DecimalLiteral .)
+    LSHIFT_R        reduce using rule 72 (IntLiteral -> DecimalLiteral .)
+    GREATER         reduce using rule 72 (IntLiteral -> DecimalLiteral .)
+    LESS            reduce using rule 72 (IntLiteral -> DecimalLiteral .)
+    GREATER_EQUAL   reduce using rule 72 (IntLiteral -> DecimalLiteral .)
+    LESS_EQUAL      reduce using rule 72 (IntLiteral -> DecimalLiteral .)
+    EQUAL           reduce using rule 72 (IntLiteral -> DecimalLiteral .)
+    NOT_EQUAL       reduce using rule 72 (IntLiteral -> DecimalLiteral .)
+    LOGICAL_AND     reduce using rule 72 (IntLiteral -> DecimalLiteral .)
+    LOGICAL_OR      reduce using rule 72 (IntLiteral -> DecimalLiteral .)
+
+
+state 28
+
+    (73) IntLiteral -> HexLiteral .
+
+    RBRACKET        reduce using rule 73 (IntLiteral -> HexLiteral .)
+    SEMICOLON       reduce using rule 73 (IntLiteral -> HexLiteral .)
+    RPAREN          reduce using rule 73 (IntLiteral -> HexLiteral .)
+    COMMA           reduce using rule 73 (IntLiteral -> HexLiteral .)
+    PLUS            reduce using rule 73 (IntLiteral -> HexLiteral .)
+    MINUS           reduce using rule 73 (IntLiteral -> HexLiteral .)
+    MULTIPLY        reduce using rule 73 (IntLiteral -> HexLiteral .)
+    DIVIDE          reduce using rule 73 (IntLiteral -> HexLiteral .)
+    MODULO          reduce using rule 73 (IntLiteral -> HexLiteral .)
+    SHIFT_L         reduce using rule 73 (IntLiteral -> HexLiteral .)
+    SHIFT_R         reduce using rule 73 (IntLiteral -> HexLiteral .)
+    LSHIFT_R        reduce using rule 73 (IntLiteral -> HexLiteral .)
+    GREATER         reduce using rule 73 (IntLiteral -> HexLiteral .)
+    LESS            reduce using rule 73 (IntLiteral -> HexLiteral .)
+    GREATER_EQUAL   reduce using rule 73 (IntLiteral -> HexLiteral .)
+    LESS_EQUAL      reduce using rule 73 (IntLiteral -> HexLiteral .)
+    EQUAL           reduce using rule 73 (IntLiteral -> HexLiteral .)
+    NOT_EQUAL       reduce using rule 73 (IntLiteral -> HexLiteral .)
+    LOGICAL_AND     reduce using rule 73 (IntLiteral -> HexLiteral .)
+    LOGICAL_OR      reduce using rule 73 (IntLiteral -> HexLiteral .)
+
+
+state 29
+
+    (74) DecimalLiteral -> NUMBER .
+
+    RBRACKET        reduce using rule 74 (DecimalLiteral -> NUMBER .)
+    SEMICOLON       reduce using rule 74 (DecimalLiteral -> NUMBER .)
+    RPAREN          reduce using rule 74 (DecimalLiteral -> NUMBER .)
+    COMMA           reduce using rule 74 (DecimalLiteral -> NUMBER .)
+    PLUS            reduce using rule 74 (DecimalLiteral -> NUMBER .)
+    MINUS           reduce using rule 74 (DecimalLiteral -> NUMBER .)
+    MULTIPLY        reduce using rule 74 (DecimalLiteral -> NUMBER .)
+    DIVIDE          reduce using rule 74 (DecimalLiteral -> NUMBER .)
+    MODULO          reduce using rule 74 (DecimalLiteral -> NUMBER .)
+    SHIFT_L         reduce using rule 74 (DecimalLiteral -> NUMBER .)
+    SHIFT_R         reduce using rule 74 (DecimalLiteral -> NUMBER .)
+    LSHIFT_R        reduce using rule 74 (DecimalLiteral -> NUMBER .)
+    GREATER         reduce using rule 74 (DecimalLiteral -> NUMBER .)
+    LESS            reduce using rule 74 (DecimalLiteral -> NUMBER .)
+    GREATER_EQUAL   reduce using rule 74 (DecimalLiteral -> NUMBER .)
+    LESS_EQUAL      reduce using rule 74 (DecimalLiteral -> NUMBER .)
+    EQUAL           reduce using rule 74 (DecimalLiteral -> NUMBER .)
+    NOT_EQUAL       reduce using rule 74 (DecimalLiteral -> NUMBER .)
+    LOGICAL_AND     reduce using rule 74 (DecimalLiteral -> NUMBER .)
+    LOGICAL_OR      reduce using rule 74 (DecimalLiteral -> NUMBER .)
+
+
+state 30
+
+    (75) HexLiteral -> HEX_NUMBER .
+
+    RBRACKET        reduce using rule 75 (HexLiteral -> HEX_NUMBER .)
+    SEMICOLON       reduce using rule 75 (HexLiteral -> HEX_NUMBER .)
+    RPAREN          reduce using rule 75 (HexLiteral -> HEX_NUMBER .)
+    COMMA           reduce using rule 75 (HexLiteral -> HEX_NUMBER .)
+    PLUS            reduce using rule 75 (HexLiteral -> HEX_NUMBER .)
+    MINUS           reduce using rule 75 (HexLiteral -> HEX_NUMBER .)
+    MULTIPLY        reduce using rule 75 (HexLiteral -> HEX_NUMBER .)
+    DIVIDE          reduce using rule 75 (HexLiteral -> HEX_NUMBER .)
+    MODULO          reduce using rule 75 (HexLiteral -> HEX_NUMBER .)
+    SHIFT_L         reduce using rule 75 (HexLiteral -> HEX_NUMBER .)
+    SHIFT_R         reduce using rule 75 (HexLiteral -> HEX_NUMBER .)
+    LSHIFT_R        reduce using rule 75 (HexLiteral -> HEX_NUMBER .)
+    GREATER         reduce using rule 75 (HexLiteral -> HEX_NUMBER .)
+    LESS            reduce using rule 75 (HexLiteral -> HEX_NUMBER .)
+    GREATER_EQUAL   reduce using rule 75 (HexLiteral -> HEX_NUMBER .)
+    LESS_EQUAL      reduce using rule 75 (HexLiteral -> HEX_NUMBER .)
+    EQUAL           reduce using rule 75 (HexLiteral -> HEX_NUMBER .)
+    NOT_EQUAL       reduce using rule 75 (HexLiteral -> HEX_NUMBER .)
+    LOGICAL_AND     reduce using rule 75 (HexLiteral -> HEX_NUMBER .)
+    LOGICAL_OR      reduce using rule 75 (HexLiteral -> HEX_NUMBER .)
+
+
+state 31
+
+    (10) ParamList -> Type . IDENTIFIER
+    (11) ParamList -> Type . IDENTIFIER COMMA ParamList
+
+    IDENTIFIER      shift and go to state 35
+
+
+state 32
+
+    (8) MethodDecl -> Type IDENTIFIER LPAREN ParamList . RPAREN Block
+
+    RPAREN          shift and go to state 36
+
+
+state 33
+
+    (9) MethodDecl -> VOID IDENTIFIER LPAREN RPAREN . Block
+    (12) Block -> . LBRACE VarDecls Statements RBRACE
+
+    LBRACE          shift and go to state 38
+
+    Block                          shift and go to state 37
+
+state 34
+
+    (5) FieldDecl -> Type IDENTIFIER LBRACKET IntLiteral RBRACKET . SEMICOLON
+
+    SEMICOLON       shift and go to state 39
+
+
+state 35
+
+    (10) ParamList -> Type IDENTIFIER .
+    (11) ParamList -> Type IDENTIFIER . COMMA ParamList
+
+    RPAREN          reduce using rule 10 (ParamList -> Type IDENTIFIER .)
+    COMMA           shift and go to state 40
+
+
+state 36
+
+    (8) MethodDecl -> Type IDENTIFIER LPAREN ParamList RPAREN . Block
+    (12) Block -> . LBRACE VarDecls Statements RBRACE
+
+    LBRACE          shift and go to state 38
+
+    Block                          shift and go to state 41
+
+state 37
+
+    (9) MethodDecl -> VOID IDENTIFIER LPAREN RPAREN Block .
+
+    INT             reduce using rule 9 (MethodDecl -> VOID IDENTIFIER LPAREN RPAREN Block .)
+    BOOLEAN         reduce using rule 9 (MethodDecl -> VOID IDENTIFIER LPAREN RPAREN Block .)
+    VOID            reduce using rule 9 (MethodDecl -> VOID IDENTIFIER LPAREN RPAREN Block .)
+    RBRACE          reduce using rule 9 (MethodDecl -> VOID IDENTIFIER LPAREN RPAREN Block .)
+
+
+state 38
+
+    (12) Block -> LBRACE . VarDecls Statements RBRACE
+    (13) VarDecls -> . VarDecl VarDecls
+    (14) VarDecls -> . empty
+    (15) VarDecl -> . Type IDENTIFIER SEMICOLON
+    (80) empty -> .
+    (16) Type -> . INT
+    (17) Type -> . BOOLEAN
+
+  ! shift/reduce conflict for INT resolved as shift
+  ! shift/reduce conflict for BOOLEAN resolved as shift
+    VOID            reduce using rule 80 (empty -> .)
+    RBRACE          reduce using rule 80 (empty -> .)
+    IF              reduce using rule 80 (empty -> .)
+    WHILE           reduce using rule 80 (empty -> .)
+    RETURN          reduce using rule 80 (empty -> .)
+    BREAK           reduce using rule 80 (empty -> .)
+    CONTINUE        reduce using rule 80 (empty -> .)
+    LBRACE          reduce using rule 80 (empty -> .)
+    IDENTIFIER      reduce using rule 80 (empty -> .)
+    CALLOUT         reduce using rule 80 (empty -> .)
+    INT             shift and go to state 9
+    BOOLEAN         shift and go to state 10
+
+  ! INT             [ reduce using rule 80 (empty -> .) ]
+  ! BOOLEAN         [ reduce using rule 80 (empty -> .) ]
+
+    VarDecls                       shift and go to state 42
+    VarDecl                        shift and go to state 43
+    empty                          shift and go to state 44
+    Type                           shift and go to state 45
+
+state 39
+
+    (5) FieldDecl -> Type IDENTIFIER LBRACKET IntLiteral RBRACKET SEMICOLON .
+
+    INT             reduce using rule 5 (FieldDecl -> Type IDENTIFIER LBRACKET IntLiteral RBRACKET SEMICOLON .)
+    BOOLEAN         reduce using rule 5 (FieldDecl -> Type IDENTIFIER LBRACKET IntLiteral RBRACKET SEMICOLON .)
+    VOID            reduce using rule 5 (FieldDecl -> Type IDENTIFIER LBRACKET IntLiteral RBRACKET SEMICOLON .)
+    RBRACE          reduce using rule 5 (FieldDecl -> Type IDENTIFIER LBRACKET IntLiteral RBRACKET SEMICOLON .)
+
+
+state 40
+
+    (11) ParamList -> Type IDENTIFIER COMMA . ParamList
+    (10) ParamList -> . Type IDENTIFIER
+    (11) ParamList -> . Type IDENTIFIER COMMA ParamList
+    (16) Type -> . INT
+    (17) Type -> . BOOLEAN
+
+    INT             shift and go to state 9
+    BOOLEAN         shift and go to state 10
+
+    Type                           shift and go to state 31
+    ParamList                      shift and go to state 46
+
+state 41
+
+    (8) MethodDecl -> Type IDENTIFIER LPAREN ParamList RPAREN Block .
+
+    INT             reduce using rule 8 (MethodDecl -> Type IDENTIFIER LPAREN ParamList RPAREN Block .)
+    BOOLEAN         reduce using rule 8 (MethodDecl -> Type IDENTIFIER LPAREN ParamList RPAREN Block .)
+    VOID            reduce using rule 8 (MethodDecl -> Type IDENTIFIER LPAREN ParamList RPAREN Block .)
+    RBRACE          reduce using rule 8 (MethodDecl -> Type IDENTIFIER LPAREN ParamList RPAREN Block .)
+
+
+state 42
+
+    (12) Block -> LBRACE VarDecls . Statements RBRACE
+    (18) Statements -> . Statement Statements
+    (19) Statements -> . empty
+    (20) Statement -> . Location ASSIGN Expression SEMICOLON
+    (21) Statement -> . MethodCall SEMICOLON
+    (22) Statement -> . IF LPAREN Expression RPAREN Block
+    (23) Statement -> . IF LPAREN Expression RPAREN Block ELSE Block
+    (24) Statement -> . WHILE LPAREN Expression RPAREN Block
+    (25) Statement -> . RETURN Expression SEMICOLON
+    (26) Statement -> . RETURN SEMICOLON
+    (27) Statement -> . BREAK SEMICOLON
+    (28) Statement -> . CONTINUE SEMICOLON
+    (29) Statement -> . Block
+    (80) empty -> .
+    (34) Location -> . IDENTIFIER
+    (35) Location -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (30) MethodCall -> . IDENTIFIER LPAREN RPAREN
+    (31) MethodCall -> . IDENTIFIER LPAREN ExpressionList RPAREN
+    (32) MethodCall -> . CALLOUT LPAREN StringLiteral RPAREN
+    (33) MethodCall -> . CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN
+    (12) Block -> . LBRACE VarDecls Statements RBRACE
+
+  ! shift/reduce conflict for IF resolved as shift
+  ! shift/reduce conflict for WHILE resolved as shift
+  ! shift/reduce conflict for RETURN resolved as shift
+  ! shift/reduce conflict for BREAK resolved as shift
+  ! shift/reduce conflict for CONTINUE resolved as shift
+  ! shift/reduce conflict for IDENTIFIER resolved as shift
+  ! shift/reduce conflict for CALLOUT resolved as shift
+  ! shift/reduce conflict for LBRACE resolved as shift
+    IF              shift and go to state 52
+    WHILE           shift and go to state 54
+    RETURN          shift and go to state 55
+    BREAK           shift and go to state 56
+    CONTINUE        shift and go to state 57
+    INT             reduce using rule 80 (empty -> .)
+    BOOLEAN         reduce using rule 80 (empty -> .)
+    VOID            reduce using rule 80 (empty -> .)
+    RBRACE          reduce using rule 80 (empty -> .)
+    IDENTIFIER      shift and go to state 58
+    CALLOUT         shift and go to state 59
+    LBRACE          shift and go to state 38
+
+  ! IF              [ reduce using rule 80 (empty -> .) ]
+  ! WHILE           [ reduce using rule 80 (empty -> .) ]
+  ! RETURN          [ reduce using rule 80 (empty -> .) ]
+  ! BREAK           [ reduce using rule 80 (empty -> .) ]
+  ! CONTINUE        [ reduce using rule 80 (empty -> .) ]
+  ! LBRACE          [ reduce using rule 80 (empty -> .) ]
+  ! IDENTIFIER      [ reduce using rule 80 (empty -> .) ]
+  ! CALLOUT         [ reduce using rule 80 (empty -> .) ]
+
+    Statements                     shift and go to state 47
+    Statement                      shift and go to state 48
+    empty                          shift and go to state 49
+    Location                       shift and go to state 50
+    MethodCall                     shift and go to state 51
+    Block                          shift and go to state 53
+
+state 43
+
+    (13) VarDecls -> VarDecl . VarDecls
+    (13) VarDecls -> . VarDecl VarDecls
+    (14) VarDecls -> . empty
+    (15) VarDecl -> . Type IDENTIFIER SEMICOLON
+    (80) empty -> .
+    (16) Type -> . INT
+    (17) Type -> . BOOLEAN
+
+  ! shift/reduce conflict for INT resolved as shift
+  ! shift/reduce conflict for BOOLEAN resolved as shift
+    VOID            reduce using rule 80 (empty -> .)
+    RBRACE          reduce using rule 80 (empty -> .)
+    IF              reduce using rule 80 (empty -> .)
+    WHILE           reduce using rule 80 (empty -> .)
+    RETURN          reduce using rule 80 (empty -> .)
+    BREAK           reduce using rule 80 (empty -> .)
+    CONTINUE        reduce using rule 80 (empty -> .)
+    LBRACE          reduce using rule 80 (empty -> .)
+    IDENTIFIER      reduce using rule 80 (empty -> .)
+    CALLOUT         reduce using rule 80 (empty -> .)
+    INT             shift and go to state 9
+    BOOLEAN         shift and go to state 10
+
+  ! INT             [ reduce using rule 80 (empty -> .) ]
+  ! BOOLEAN         [ reduce using rule 80 (empty -> .) ]
+
+    VarDecl                        shift and go to state 43
+    VarDecls                       shift and go to state 60
+    empty                          shift and go to state 44
+    Type                           shift and go to state 45
+
+state 44
+
+    (14) VarDecls -> empty .
+
+    IF              reduce using rule 14 (VarDecls -> empty .)
+    WHILE           reduce using rule 14 (VarDecls -> empty .)
+    RETURN          reduce using rule 14 (VarDecls -> empty .)
+    BREAK           reduce using rule 14 (VarDecls -> empty .)
+    CONTINUE        reduce using rule 14 (VarDecls -> empty .)
+    LBRACE          reduce using rule 14 (VarDecls -> empty .)
+    IDENTIFIER      reduce using rule 14 (VarDecls -> empty .)
+    CALLOUT         reduce using rule 14 (VarDecls -> empty .)
+    RBRACE          reduce using rule 14 (VarDecls -> empty .)
+
+
+state 45
+
+    (15) VarDecl -> Type . IDENTIFIER SEMICOLON
+
+    IDENTIFIER      shift and go to state 61
+
+
+state 46
+
+    (11) ParamList -> Type IDENTIFIER COMMA ParamList .
+
+    RPAREN          reduce using rule 11 (ParamList -> Type IDENTIFIER COMMA ParamList .)
+
+
+state 47
+
+    (12) Block -> LBRACE VarDecls Statements . RBRACE
+
+    RBRACE          shift and go to state 62
+
+
+state 48
+
+    (18) Statements -> Statement . Statements
+    (18) Statements -> . Statement Statements
+    (19) Statements -> . empty
+    (20) Statement -> . Location ASSIGN Expression SEMICOLON
+    (21) Statement -> . MethodCall SEMICOLON
+    (22) Statement -> . IF LPAREN Expression RPAREN Block
+    (23) Statement -> . IF LPAREN Expression RPAREN Block ELSE Block
+    (24) Statement -> . WHILE LPAREN Expression RPAREN Block
+    (25) Statement -> . RETURN Expression SEMICOLON
+    (26) Statement -> . RETURN SEMICOLON
+    (27) Statement -> . BREAK SEMICOLON
+    (28) Statement -> . CONTINUE SEMICOLON
+    (29) Statement -> . Block
+    (80) empty -> .
+    (34) Location -> . IDENTIFIER
+    (35) Location -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (30) MethodCall -> . IDENTIFIER LPAREN RPAREN
+    (31) MethodCall -> . IDENTIFIER LPAREN ExpressionList RPAREN
+    (32) MethodCall -> . CALLOUT LPAREN StringLiteral RPAREN
+    (33) MethodCall -> . CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN
+    (12) Block -> . LBRACE VarDecls Statements RBRACE
+
+  ! shift/reduce conflict for IF resolved as shift
+  ! shift/reduce conflict for WHILE resolved as shift
+  ! shift/reduce conflict for RETURN resolved as shift
+  ! shift/reduce conflict for BREAK resolved as shift
+  ! shift/reduce conflict for CONTINUE resolved as shift
+  ! shift/reduce conflict for IDENTIFIER resolved as shift
+  ! shift/reduce conflict for CALLOUT resolved as shift
+  ! shift/reduce conflict for LBRACE resolved as shift
+    IF              shift and go to state 52
+    WHILE           shift and go to state 54
+    RETURN          shift and go to state 55
+    BREAK           shift and go to state 56
+    CONTINUE        shift and go to state 57
+    INT             reduce using rule 80 (empty -> .)
+    BOOLEAN         reduce using rule 80 (empty -> .)
+    VOID            reduce using rule 80 (empty -> .)
+    RBRACE          reduce using rule 80 (empty -> .)
+    IDENTIFIER      shift and go to state 58
+    CALLOUT         shift and go to state 59
+    LBRACE          shift and go to state 38
+
+  ! IF              [ reduce using rule 80 (empty -> .) ]
+  ! WHILE           [ reduce using rule 80 (empty -> .) ]
+  ! RETURN          [ reduce using rule 80 (empty -> .) ]
+  ! BREAK           [ reduce using rule 80 (empty -> .) ]
+  ! CONTINUE        [ reduce using rule 80 (empty -> .) ]
+  ! LBRACE          [ reduce using rule 80 (empty -> .) ]
+  ! IDENTIFIER      [ reduce using rule 80 (empty -> .) ]
+  ! CALLOUT         [ reduce using rule 80 (empty -> .) ]
+
+    Statement                      shift and go to state 48
+    Statements                     shift and go to state 63
+    empty                          shift and go to state 49
+    Location                       shift and go to state 50
+    MethodCall                     shift and go to state 51
+    Block                          shift and go to state 53
+
+state 49
+
+    (19) Statements -> empty .
+
+    RBRACE          reduce using rule 19 (Statements -> empty .)
+
+
+state 50
+
+    (20) Statement -> Location . ASSIGN Expression SEMICOLON
+
+    ASSIGN          shift and go to state 64
+
+
+state 51
+
+    (21) Statement -> MethodCall . SEMICOLON
+
+    SEMICOLON       shift and go to state 65
+
+
+state 52
+
+    (22) Statement -> IF . LPAREN Expression RPAREN Block
+    (23) Statement -> IF . LPAREN Expression RPAREN Block ELSE Block
+
+    LPAREN          shift and go to state 66
+
+
+state 53
+
+    (29) Statement -> Block .
+
+    IF              reduce using rule 29 (Statement -> Block .)
+    WHILE           reduce using rule 29 (Statement -> Block .)
+    RETURN          reduce using rule 29 (Statement -> Block .)
+    BREAK           reduce using rule 29 (Statement -> Block .)
+    CONTINUE        reduce using rule 29 (Statement -> Block .)
+    LBRACE          reduce using rule 29 (Statement -> Block .)
+    IDENTIFIER      reduce using rule 29 (Statement -> Block .)
+    CALLOUT         reduce using rule 29 (Statement -> Block .)
+    RBRACE          reduce using rule 29 (Statement -> Block .)
+
+
+state 54
+
+    (24) Statement -> WHILE . LPAREN Expression RPAREN Block
+
+    LPAREN          shift and go to state 67
+
+
+state 55
+
+    (25) Statement -> RETURN . Expression SEMICOLON
+    (26) Statement -> RETURN . SEMICOLON
+    (38) Expression -> . Location
+    (39) Expression -> . MethodCall
+    (40) Expression -> . Literal
+    (41) Expression -> . Expression BinOp Expression
+    (42) Expression -> . MINUS Expression
+    (43) Expression -> . NOT Expression
+    (44) Expression -> . LPAREN Expression RPAREN
+    (34) Location -> . IDENTIFIER
+    (35) Location -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (30) MethodCall -> . IDENTIFIER LPAREN RPAREN
+    (31) MethodCall -> . IDENTIFIER LPAREN ExpressionList RPAREN
+    (32) MethodCall -> . CALLOUT LPAREN StringLiteral RPAREN
+    (33) MethodCall -> . CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN
+    (69) Literal -> . IntLiteral
+    (70) Literal -> . CharLiteral
+    (71) Literal -> . BoolLiteral
+    (72) IntLiteral -> . DecimalLiteral
+    (73) IntLiteral -> . HexLiteral
+    (78) CharLiteral -> . CHAR_LITERAL
+    (76) BoolLiteral -> . TRUE
+    (77) BoolLiteral -> . FALSE
+    (74) DecimalLiteral -> . NUMBER
+    (75) HexLiteral -> . HEX_NUMBER
+
+    SEMICOLON       shift and go to state 69
+    MINUS           shift and go to state 73
+    NOT             shift and go to state 74
+    LPAREN          shift and go to state 75
+    IDENTIFIER      shift and go to state 58
+    CALLOUT         shift and go to state 59
+    CHAR_LITERAL    shift and go to state 79
+    TRUE            shift and go to state 80
+    FALSE           shift and go to state 81
+    NUMBER          shift and go to state 29
+    HEX_NUMBER      shift and go to state 30
+
+    Expression                     shift and go to state 68
+    Location                       shift and go to state 70
+    MethodCall                     shift and go to state 71
+    Literal                        shift and go to state 72
+    IntLiteral                     shift and go to state 76
+    CharLiteral                    shift and go to state 77
+    BoolLiteral                    shift and go to state 78
+    DecimalLiteral                 shift and go to state 27
+    HexLiteral                     shift and go to state 28
+
+state 56
+
+    (27) Statement -> BREAK . SEMICOLON
+
+    SEMICOLON       shift and go to state 82
+
+
+state 57
+
+    (28) Statement -> CONTINUE . SEMICOLON
+
+    SEMICOLON       shift and go to state 83
+
+
+state 58
+
+    (34) Location -> IDENTIFIER .
+    (35) Location -> IDENTIFIER . LBRACKET Expression RBRACKET
+    (30) MethodCall -> IDENTIFIER . LPAREN RPAREN
+    (31) MethodCall -> IDENTIFIER . LPAREN ExpressionList RPAREN
+
+    ASSIGN          reduce using rule 34 (Location -> IDENTIFIER .)
+    SEMICOLON       reduce using rule 34 (Location -> IDENTIFIER .)
+    RPAREN          reduce using rule 34 (Location -> IDENTIFIER .)
+    RBRACKET        reduce using rule 34 (Location -> IDENTIFIER .)
+    COMMA           reduce using rule 34 (Location -> IDENTIFIER .)
+    PLUS            reduce using rule 34 (Location -> IDENTIFIER .)
+    MINUS           reduce using rule 34 (Location -> IDENTIFIER .)
+    MULTIPLY        reduce using rule 34 (Location -> IDENTIFIER .)
+    DIVIDE          reduce using rule 34 (Location -> IDENTIFIER .)
+    MODULO          reduce using rule 34 (Location -> IDENTIFIER .)
+    SHIFT_L         reduce using rule 34 (Location -> IDENTIFIER .)
+    SHIFT_R         reduce using rule 34 (Location -> IDENTIFIER .)
+    LSHIFT_R        reduce using rule 34 (Location -> IDENTIFIER .)
+    GREATER         reduce using rule 34 (Location -> IDENTIFIER .)
+    LESS            reduce using rule 34 (Location -> IDENTIFIER .)
+    GREATER_EQUAL   reduce using rule 34 (Location -> IDENTIFIER .)
+    LESS_EQUAL      reduce using rule 34 (Location -> IDENTIFIER .)
+    EQUAL           reduce using rule 34 (Location -> IDENTIFIER .)
+    NOT_EQUAL       reduce using rule 34 (Location -> IDENTIFIER .)
+    LOGICAL_AND     reduce using rule 34 (Location -> IDENTIFIER .)
+    LOGICAL_OR      reduce using rule 34 (Location -> IDENTIFIER .)
+    LBRACKET        shift and go to state 84
+    LPAREN          shift and go to state 85
+
+
+state 59
+
+    (32) MethodCall -> CALLOUT . LPAREN StringLiteral RPAREN
+    (33) MethodCall -> CALLOUT . LPAREN StringLiteral COMMA CalloutArgList RPAREN
+
+    LPAREN          shift and go to state 86
+
+
+state 60
+
+    (13) VarDecls -> VarDecl VarDecls .
+
+    IF              reduce using rule 13 (VarDecls -> VarDecl VarDecls .)
+    WHILE           reduce using rule 13 (VarDecls -> VarDecl VarDecls .)
+    RETURN          reduce using rule 13 (VarDecls -> VarDecl VarDecls .)
+    BREAK           reduce using rule 13 (VarDecls -> VarDecl VarDecls .)
+    CONTINUE        reduce using rule 13 (VarDecls -> VarDecl VarDecls .)
+    LBRACE          reduce using rule 13 (VarDecls -> VarDecl VarDecls .)
+    IDENTIFIER      reduce using rule 13 (VarDecls -> VarDecl VarDecls .)
+    CALLOUT         reduce using rule 13 (VarDecls -> VarDecl VarDecls .)
+    RBRACE          reduce using rule 13 (VarDecls -> VarDecl VarDecls .)
+
+
+state 61
+
+    (15) VarDecl -> Type IDENTIFIER . SEMICOLON
+
+    SEMICOLON       shift and go to state 87
+
+
+state 62
+
+    (12) Block -> LBRACE VarDecls Statements RBRACE .
+
+    INT             reduce using rule 12 (Block -> LBRACE VarDecls Statements RBRACE .)
+    BOOLEAN         reduce using rule 12 (Block -> LBRACE VarDecls Statements RBRACE .)
+    VOID            reduce using rule 12 (Block -> LBRACE VarDecls Statements RBRACE .)
+    RBRACE          reduce using rule 12 (Block -> LBRACE VarDecls Statements RBRACE .)
+    IF              reduce using rule 12 (Block -> LBRACE VarDecls Statements RBRACE .)
+    WHILE           reduce using rule 12 (Block -> LBRACE VarDecls Statements RBRACE .)
+    RETURN          reduce using rule 12 (Block -> LBRACE VarDecls Statements RBRACE .)
+    BREAK           reduce using rule 12 (Block -> LBRACE VarDecls Statements RBRACE .)
+    CONTINUE        reduce using rule 12 (Block -> LBRACE VarDecls Statements RBRACE .)
+    LBRACE          reduce using rule 12 (Block -> LBRACE VarDecls Statements RBRACE .)
+    IDENTIFIER      reduce using rule 12 (Block -> LBRACE VarDecls Statements RBRACE .)
+    CALLOUT         reduce using rule 12 (Block -> LBRACE VarDecls Statements RBRACE .)
+    ELSE            reduce using rule 12 (Block -> LBRACE VarDecls Statements RBRACE .)
+
+
+state 63
+
+    (18) Statements -> Statement Statements .
+
+    RBRACE          reduce using rule 18 (Statements -> Statement Statements .)
+
+
+state 64
+
+    (20) Statement -> Location ASSIGN . Expression SEMICOLON
+    (38) Expression -> . Location
+    (39) Expression -> . MethodCall
+    (40) Expression -> . Literal
+    (41) Expression -> . Expression BinOp Expression
+    (42) Expression -> . MINUS Expression
+    (43) Expression -> . NOT Expression
+    (44) Expression -> . LPAREN Expression RPAREN
+    (34) Location -> . IDENTIFIER
+    (35) Location -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (30) MethodCall -> . IDENTIFIER LPAREN RPAREN
+    (31) MethodCall -> . IDENTIFIER LPAREN ExpressionList RPAREN
+    (32) MethodCall -> . CALLOUT LPAREN StringLiteral RPAREN
+    (33) MethodCall -> . CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN
+    (69) Literal -> . IntLiteral
+    (70) Literal -> . CharLiteral
+    (71) Literal -> . BoolLiteral
+    (72) IntLiteral -> . DecimalLiteral
+    (73) IntLiteral -> . HexLiteral
+    (78) CharLiteral -> . CHAR_LITERAL
+    (76) BoolLiteral -> . TRUE
+    (77) BoolLiteral -> . FALSE
+    (74) DecimalLiteral -> . NUMBER
+    (75) HexLiteral -> . HEX_NUMBER
+
+    MINUS           shift and go to state 73
+    NOT             shift and go to state 74
+    LPAREN          shift and go to state 75
+    IDENTIFIER      shift and go to state 58
+    CALLOUT         shift and go to state 59
+    CHAR_LITERAL    shift and go to state 79
+    TRUE            shift and go to state 80
+    FALSE           shift and go to state 81
+    NUMBER          shift and go to state 29
+    HEX_NUMBER      shift and go to state 30
+
+    Location                       shift and go to state 70
+    Expression                     shift and go to state 88
+    MethodCall                     shift and go to state 71
+    Literal                        shift and go to state 72
+    IntLiteral                     shift and go to state 76
+    CharLiteral                    shift and go to state 77
+    BoolLiteral                    shift and go to state 78
+    DecimalLiteral                 shift and go to state 27
+    HexLiteral                     shift and go to state 28
+
+state 65
+
+    (21) Statement -> MethodCall SEMICOLON .
+
+    IF              reduce using rule 21 (Statement -> MethodCall SEMICOLON .)
+    WHILE           reduce using rule 21 (Statement -> MethodCall SEMICOLON .)
+    RETURN          reduce using rule 21 (Statement -> MethodCall SEMICOLON .)
+    BREAK           reduce using rule 21 (Statement -> MethodCall SEMICOLON .)
+    CONTINUE        reduce using rule 21 (Statement -> MethodCall SEMICOLON .)
+    LBRACE          reduce using rule 21 (Statement -> MethodCall SEMICOLON .)
+    IDENTIFIER      reduce using rule 21 (Statement -> MethodCall SEMICOLON .)
+    CALLOUT         reduce using rule 21 (Statement -> MethodCall SEMICOLON .)
+    RBRACE          reduce using rule 21 (Statement -> MethodCall SEMICOLON .)
+
+
+state 66
+
+    (22) Statement -> IF LPAREN . Expression RPAREN Block
+    (23) Statement -> IF LPAREN . Expression RPAREN Block ELSE Block
+    (38) Expression -> . Location
+    (39) Expression -> . MethodCall
+    (40) Expression -> . Literal
+    (41) Expression -> . Expression BinOp Expression
+    (42) Expression -> . MINUS Expression
+    (43) Expression -> . NOT Expression
+    (44) Expression -> . LPAREN Expression RPAREN
+    (34) Location -> . IDENTIFIER
+    (35) Location -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (30) MethodCall -> . IDENTIFIER LPAREN RPAREN
+    (31) MethodCall -> . IDENTIFIER LPAREN ExpressionList RPAREN
+    (32) MethodCall -> . CALLOUT LPAREN StringLiteral RPAREN
+    (33) MethodCall -> . CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN
+    (69) Literal -> . IntLiteral
+    (70) Literal -> . CharLiteral
+    (71) Literal -> . BoolLiteral
+    (72) IntLiteral -> . DecimalLiteral
+    (73) IntLiteral -> . HexLiteral
+    (78) CharLiteral -> . CHAR_LITERAL
+    (76) BoolLiteral -> . TRUE
+    (77) BoolLiteral -> . FALSE
+    (74) DecimalLiteral -> . NUMBER
+    (75) HexLiteral -> . HEX_NUMBER
+
+    MINUS           shift and go to state 73
+    NOT             shift and go to state 74
+    LPAREN          shift and go to state 75
+    IDENTIFIER      shift and go to state 58
+    CALLOUT         shift and go to state 59
+    CHAR_LITERAL    shift and go to state 79
+    TRUE            shift and go to state 80
+    FALSE           shift and go to state 81
+    NUMBER          shift and go to state 29
+    HEX_NUMBER      shift and go to state 30
+
+    Expression                     shift and go to state 89
+    Location                       shift and go to state 70
+    MethodCall                     shift and go to state 71
+    Literal                        shift and go to state 72
+    IntLiteral                     shift and go to state 76
+    CharLiteral                    shift and go to state 77
+    BoolLiteral                    shift and go to state 78
+    DecimalLiteral                 shift and go to state 27
+    HexLiteral                     shift and go to state 28
+
+state 67
+
+    (24) Statement -> WHILE LPAREN . Expression RPAREN Block
+    (38) Expression -> . Location
+    (39) Expression -> . MethodCall
+    (40) Expression -> . Literal
+    (41) Expression -> . Expression BinOp Expression
+    (42) Expression -> . MINUS Expression
+    (43) Expression -> . NOT Expression
+    (44) Expression -> . LPAREN Expression RPAREN
+    (34) Location -> . IDENTIFIER
+    (35) Location -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (30) MethodCall -> . IDENTIFIER LPAREN RPAREN
+    (31) MethodCall -> . IDENTIFIER LPAREN ExpressionList RPAREN
+    (32) MethodCall -> . CALLOUT LPAREN StringLiteral RPAREN
+    (33) MethodCall -> . CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN
+    (69) Literal -> . IntLiteral
+    (70) Literal -> . CharLiteral
+    (71) Literal -> . BoolLiteral
+    (72) IntLiteral -> . DecimalLiteral
+    (73) IntLiteral -> . HexLiteral
+    (78) CharLiteral -> . CHAR_LITERAL
+    (76) BoolLiteral -> . TRUE
+    (77) BoolLiteral -> . FALSE
+    (74) DecimalLiteral -> . NUMBER
+    (75) HexLiteral -> . HEX_NUMBER
+
+    MINUS           shift and go to state 73
+    NOT             shift and go to state 74
+    LPAREN          shift and go to state 75
+    IDENTIFIER      shift and go to state 58
+    CALLOUT         shift and go to state 59
+    CHAR_LITERAL    shift and go to state 79
+    TRUE            shift and go to state 80
+    FALSE           shift and go to state 81
+    NUMBER          shift and go to state 29
+    HEX_NUMBER      shift and go to state 30
+
+    Expression                     shift and go to state 90
+    Location                       shift and go to state 70
+    MethodCall                     shift and go to state 71
+    Literal                        shift and go to state 72
+    IntLiteral                     shift and go to state 76
+    CharLiteral                    shift and go to state 77
+    BoolLiteral                    shift and go to state 78
+    DecimalLiteral                 shift and go to state 27
+    HexLiteral                     shift and go to state 28
+
+state 68
+
+    (25) Statement -> RETURN Expression . SEMICOLON
+    (41) Expression -> Expression . BinOp Expression
+    (49) BinOp -> . ArithOp
+    (50) BinOp -> . RelOp
+    (51) BinOp -> . EqOp
+    (52) BinOp -> . CondOp
+    (53) ArithOp -> . PLUS
+    (54) ArithOp -> . MINUS
+    (55) ArithOp -> . MULTIPLY
+    (56) ArithOp -> . DIVIDE
+    (57) ArithOp -> . MODULO
+    (58) ArithOp -> . SHIFT_L
+    (59) ArithOp -> . SHIFT_R
+    (60) ArithOp -> . LSHIFT_R
+    (61) RelOp -> . GREATER
+    (62) RelOp -> . LESS
+    (63) RelOp -> . GREATER_EQUAL
+    (64) RelOp -> . LESS_EQUAL
+    (65) EqOp -> . EQUAL
+    (66) EqOp -> . NOT_EQUAL
+    (67) CondOp -> . LOGICAL_AND
+    (68) CondOp -> . LOGICAL_OR
+
+    SEMICOLON       shift and go to state 91
+    PLUS            shift and go to state 97
+    MINUS           shift and go to state 98
+    MULTIPLY        shift and go to state 99
+    DIVIDE          shift and go to state 100
+    MODULO          shift and go to state 101
+    SHIFT_L         shift and go to state 102
+    SHIFT_R         shift and go to state 103
+    LSHIFT_R        shift and go to state 104
+    GREATER         shift and go to state 105
+    LESS            shift and go to state 106
+    GREATER_EQUAL   shift and go to state 107
+    LESS_EQUAL      shift and go to state 108
+    EQUAL           shift and go to state 109
+    NOT_EQUAL       shift and go to state 110
+    LOGICAL_AND     shift and go to state 111
+    LOGICAL_OR      shift and go to state 112
+
+    BinOp                          shift and go to state 92
+    ArithOp                        shift and go to state 93
+    RelOp                          shift and go to state 94
+    EqOp                           shift and go to state 95
+    CondOp                         shift and go to state 96
+
+state 69
+
+    (26) Statement -> RETURN SEMICOLON .
+
+    IF              reduce using rule 26 (Statement -> RETURN SEMICOLON .)
+    WHILE           reduce using rule 26 (Statement -> RETURN SEMICOLON .)
+    RETURN          reduce using rule 26 (Statement -> RETURN SEMICOLON .)
+    BREAK           reduce using rule 26 (Statement -> RETURN SEMICOLON .)
+    CONTINUE        reduce using rule 26 (Statement -> RETURN SEMICOLON .)
+    LBRACE          reduce using rule 26 (Statement -> RETURN SEMICOLON .)
+    IDENTIFIER      reduce using rule 26 (Statement -> RETURN SEMICOLON .)
+    CALLOUT         reduce using rule 26 (Statement -> RETURN SEMICOLON .)
+    RBRACE          reduce using rule 26 (Statement -> RETURN SEMICOLON .)
+
+
+state 70
+
+    (38) Expression -> Location .
+
+    SEMICOLON       reduce using rule 38 (Expression -> Location .)
+    RPAREN          reduce using rule 38 (Expression -> Location .)
+    RBRACKET        reduce using rule 38 (Expression -> Location .)
+    COMMA           reduce using rule 38 (Expression -> Location .)
+    PLUS            reduce using rule 38 (Expression -> Location .)
+    MINUS           reduce using rule 38 (Expression -> Location .)
+    MULTIPLY        reduce using rule 38 (Expression -> Location .)
+    DIVIDE          reduce using rule 38 (Expression -> Location .)
+    MODULO          reduce using rule 38 (Expression -> Location .)
+    SHIFT_L         reduce using rule 38 (Expression -> Location .)
+    SHIFT_R         reduce using rule 38 (Expression -> Location .)
+    LSHIFT_R        reduce using rule 38 (Expression -> Location .)
+    GREATER         reduce using rule 38 (Expression -> Location .)
+    LESS            reduce using rule 38 (Expression -> Location .)
+    GREATER_EQUAL   reduce using rule 38 (Expression -> Location .)
+    LESS_EQUAL      reduce using rule 38 (Expression -> Location .)
+    EQUAL           reduce using rule 38 (Expression -> Location .)
+    NOT_EQUAL       reduce using rule 38 (Expression -> Location .)
+    LOGICAL_AND     reduce using rule 38 (Expression -> Location .)
+    LOGICAL_OR      reduce using rule 38 (Expression -> Location .)
+
+
+state 71
+
+    (39) Expression -> MethodCall .
+
+    SEMICOLON       reduce using rule 39 (Expression -> MethodCall .)
+    RPAREN          reduce using rule 39 (Expression -> MethodCall .)
+    RBRACKET        reduce using rule 39 (Expression -> MethodCall .)
+    COMMA           reduce using rule 39 (Expression -> MethodCall .)
+    PLUS            reduce using rule 39 (Expression -> MethodCall .)
+    MINUS           reduce using rule 39 (Expression -> MethodCall .)
+    MULTIPLY        reduce using rule 39 (Expression -> MethodCall .)
+    DIVIDE          reduce using rule 39 (Expression -> MethodCall .)
+    MODULO          reduce using rule 39 (Expression -> MethodCall .)
+    SHIFT_L         reduce using rule 39 (Expression -> MethodCall .)
+    SHIFT_R         reduce using rule 39 (Expression -> MethodCall .)
+    LSHIFT_R        reduce using rule 39 (Expression -> MethodCall .)
+    GREATER         reduce using rule 39 (Expression -> MethodCall .)
+    LESS            reduce using rule 39 (Expression -> MethodCall .)
+    GREATER_EQUAL   reduce using rule 39 (Expression -> MethodCall .)
+    LESS_EQUAL      reduce using rule 39 (Expression -> MethodCall .)
+    EQUAL           reduce using rule 39 (Expression -> MethodCall .)
+    NOT_EQUAL       reduce using rule 39 (Expression -> MethodCall .)
+    LOGICAL_AND     reduce using rule 39 (Expression -> MethodCall .)
+    LOGICAL_OR      reduce using rule 39 (Expression -> MethodCall .)
+
+
+state 72
+
+    (40) Expression -> Literal .
+
+    SEMICOLON       reduce using rule 40 (Expression -> Literal .)
+    RPAREN          reduce using rule 40 (Expression -> Literal .)
+    RBRACKET        reduce using rule 40 (Expression -> Literal .)
+    COMMA           reduce using rule 40 (Expression -> Literal .)
+    PLUS            reduce using rule 40 (Expression -> Literal .)
+    MINUS           reduce using rule 40 (Expression -> Literal .)
+    MULTIPLY        reduce using rule 40 (Expression -> Literal .)
+    DIVIDE          reduce using rule 40 (Expression -> Literal .)
+    MODULO          reduce using rule 40 (Expression -> Literal .)
+    SHIFT_L         reduce using rule 40 (Expression -> Literal .)
+    SHIFT_R         reduce using rule 40 (Expression -> Literal .)
+    LSHIFT_R        reduce using rule 40 (Expression -> Literal .)
+    GREATER         reduce using rule 40 (Expression -> Literal .)
+    LESS            reduce using rule 40 (Expression -> Literal .)
+    GREATER_EQUAL   reduce using rule 40 (Expression -> Literal .)
+    LESS_EQUAL      reduce using rule 40 (Expression -> Literal .)
+    EQUAL           reduce using rule 40 (Expression -> Literal .)
+    NOT_EQUAL       reduce using rule 40 (Expression -> Literal .)
+    LOGICAL_AND     reduce using rule 40 (Expression -> Literal .)
+    LOGICAL_OR      reduce using rule 40 (Expression -> Literal .)
+
+
+state 73
+
+    (42) Expression -> MINUS . Expression
+    (38) Expression -> . Location
+    (39) Expression -> . MethodCall
+    (40) Expression -> . Literal
+    (41) Expression -> . Expression BinOp Expression
+    (42) Expression -> . MINUS Expression
+    (43) Expression -> . NOT Expression
+    (44) Expression -> . LPAREN Expression RPAREN
+    (34) Location -> . IDENTIFIER
+    (35) Location -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (30) MethodCall -> . IDENTIFIER LPAREN RPAREN
+    (31) MethodCall -> . IDENTIFIER LPAREN ExpressionList RPAREN
+    (32) MethodCall -> . CALLOUT LPAREN StringLiteral RPAREN
+    (33) MethodCall -> . CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN
+    (69) Literal -> . IntLiteral
+    (70) Literal -> . CharLiteral
+    (71) Literal -> . BoolLiteral
+    (72) IntLiteral -> . DecimalLiteral
+    (73) IntLiteral -> . HexLiteral
+    (78) CharLiteral -> . CHAR_LITERAL
+    (76) BoolLiteral -> . TRUE
+    (77) BoolLiteral -> . FALSE
+    (74) DecimalLiteral -> . NUMBER
+    (75) HexLiteral -> . HEX_NUMBER
+
+    MINUS           shift and go to state 73
+    NOT             shift and go to state 74
+    LPAREN          shift and go to state 75
+    IDENTIFIER      shift and go to state 58
+    CALLOUT         shift and go to state 59
+    CHAR_LITERAL    shift and go to state 79
+    TRUE            shift and go to state 80
+    FALSE           shift and go to state 81
+    NUMBER          shift and go to state 29
+    HEX_NUMBER      shift and go to state 30
+
+    Expression                     shift and go to state 113
+    Location                       shift and go to state 70
+    MethodCall                     shift and go to state 71
+    Literal                        shift and go to state 72
+    IntLiteral                     shift and go to state 76
+    CharLiteral                    shift and go to state 77
+    BoolLiteral                    shift and go to state 78
+    DecimalLiteral                 shift and go to state 27
+    HexLiteral                     shift and go to state 28
+
+state 74
+
+    (43) Expression -> NOT . Expression
+    (38) Expression -> . Location
+    (39) Expression -> . MethodCall
+    (40) Expression -> . Literal
+    (41) Expression -> . Expression BinOp Expression
+    (42) Expression -> . MINUS Expression
+    (43) Expression -> . NOT Expression
+    (44) Expression -> . LPAREN Expression RPAREN
+    (34) Location -> . IDENTIFIER
+    (35) Location -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (30) MethodCall -> . IDENTIFIER LPAREN RPAREN
+    (31) MethodCall -> . IDENTIFIER LPAREN ExpressionList RPAREN
+    (32) MethodCall -> . CALLOUT LPAREN StringLiteral RPAREN
+    (33) MethodCall -> . CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN
+    (69) Literal -> . IntLiteral
+    (70) Literal -> . CharLiteral
+    (71) Literal -> . BoolLiteral
+    (72) IntLiteral -> . DecimalLiteral
+    (73) IntLiteral -> . HexLiteral
+    (78) CharLiteral -> . CHAR_LITERAL
+    (76) BoolLiteral -> . TRUE
+    (77) BoolLiteral -> . FALSE
+    (74) DecimalLiteral -> . NUMBER
+    (75) HexLiteral -> . HEX_NUMBER
+
+    MINUS           shift and go to state 73
+    NOT             shift and go to state 74
+    LPAREN          shift and go to state 75
+    IDENTIFIER      shift and go to state 58
+    CALLOUT         shift and go to state 59
+    CHAR_LITERAL    shift and go to state 79
+    TRUE            shift and go to state 80
+    FALSE           shift and go to state 81
+    NUMBER          shift and go to state 29
+    HEX_NUMBER      shift and go to state 30
+
+    Expression                     shift and go to state 114
+    Location                       shift and go to state 70
+    MethodCall                     shift and go to state 71
+    Literal                        shift and go to state 72
+    IntLiteral                     shift and go to state 76
+    CharLiteral                    shift and go to state 77
+    BoolLiteral                    shift and go to state 78
+    DecimalLiteral                 shift and go to state 27
+    HexLiteral                     shift and go to state 28
+
+state 75
+
+    (44) Expression -> LPAREN . Expression RPAREN
+    (38) Expression -> . Location
+    (39) Expression -> . MethodCall
+    (40) Expression -> . Literal
+    (41) Expression -> . Expression BinOp Expression
+    (42) Expression -> . MINUS Expression
+    (43) Expression -> . NOT Expression
+    (44) Expression -> . LPAREN Expression RPAREN
+    (34) Location -> . IDENTIFIER
+    (35) Location -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (30) MethodCall -> . IDENTIFIER LPAREN RPAREN
+    (31) MethodCall -> . IDENTIFIER LPAREN ExpressionList RPAREN
+    (32) MethodCall -> . CALLOUT LPAREN StringLiteral RPAREN
+    (33) MethodCall -> . CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN
+    (69) Literal -> . IntLiteral
+    (70) Literal -> . CharLiteral
+    (71) Literal -> . BoolLiteral
+    (72) IntLiteral -> . DecimalLiteral
+    (73) IntLiteral -> . HexLiteral
+    (78) CharLiteral -> . CHAR_LITERAL
+    (76) BoolLiteral -> . TRUE
+    (77) BoolLiteral -> . FALSE
+    (74) DecimalLiteral -> . NUMBER
+    (75) HexLiteral -> . HEX_NUMBER
+
+    MINUS           shift and go to state 73
+    NOT             shift and go to state 74
+    LPAREN          shift and go to state 75
+    IDENTIFIER      shift and go to state 58
+    CALLOUT         shift and go to state 59
+    CHAR_LITERAL    shift and go to state 79
+    TRUE            shift and go to state 80
+    FALSE           shift and go to state 81
+    NUMBER          shift and go to state 29
+    HEX_NUMBER      shift and go to state 30
+
+    Expression                     shift and go to state 115
+    Location                       shift and go to state 70
+    MethodCall                     shift and go to state 71
+    Literal                        shift and go to state 72
+    IntLiteral                     shift and go to state 76
+    CharLiteral                    shift and go to state 77
+    BoolLiteral                    shift and go to state 78
+    DecimalLiteral                 shift and go to state 27
+    HexLiteral                     shift and go to state 28
+
+state 76
+
+    (69) Literal -> IntLiteral .
+
+    SEMICOLON       reduce using rule 69 (Literal -> IntLiteral .)
+    RPAREN          reduce using rule 69 (Literal -> IntLiteral .)
+    RBRACKET        reduce using rule 69 (Literal -> IntLiteral .)
+    COMMA           reduce using rule 69 (Literal -> IntLiteral .)
+    PLUS            reduce using rule 69 (Literal -> IntLiteral .)
+    MINUS           reduce using rule 69 (Literal -> IntLiteral .)
+    MULTIPLY        reduce using rule 69 (Literal -> IntLiteral .)
+    DIVIDE          reduce using rule 69 (Literal -> IntLiteral .)
+    MODULO          reduce using rule 69 (Literal -> IntLiteral .)
+    SHIFT_L         reduce using rule 69 (Literal -> IntLiteral .)
+    SHIFT_R         reduce using rule 69 (Literal -> IntLiteral .)
+    LSHIFT_R        reduce using rule 69 (Literal -> IntLiteral .)
+    GREATER         reduce using rule 69 (Literal -> IntLiteral .)
+    LESS            reduce using rule 69 (Literal -> IntLiteral .)
+    GREATER_EQUAL   reduce using rule 69 (Literal -> IntLiteral .)
+    LESS_EQUAL      reduce using rule 69 (Literal -> IntLiteral .)
+    EQUAL           reduce using rule 69 (Literal -> IntLiteral .)
+    NOT_EQUAL       reduce using rule 69 (Literal -> IntLiteral .)
+    LOGICAL_AND     reduce using rule 69 (Literal -> IntLiteral .)
+    LOGICAL_OR      reduce using rule 69 (Literal -> IntLiteral .)
+
+
+state 77
+
+    (70) Literal -> CharLiteral .
+
+    SEMICOLON       reduce using rule 70 (Literal -> CharLiteral .)
+    RPAREN          reduce using rule 70 (Literal -> CharLiteral .)
+    RBRACKET        reduce using rule 70 (Literal -> CharLiteral .)
+    COMMA           reduce using rule 70 (Literal -> CharLiteral .)
+    PLUS            reduce using rule 70 (Literal -> CharLiteral .)
+    MINUS           reduce using rule 70 (Literal -> CharLiteral .)
+    MULTIPLY        reduce using rule 70 (Literal -> CharLiteral .)
+    DIVIDE          reduce using rule 70 (Literal -> CharLiteral .)
+    MODULO          reduce using rule 70 (Literal -> CharLiteral .)
+    SHIFT_L         reduce using rule 70 (Literal -> CharLiteral .)
+    SHIFT_R         reduce using rule 70 (Literal -> CharLiteral .)
+    LSHIFT_R        reduce using rule 70 (Literal -> CharLiteral .)
+    GREATER         reduce using rule 70 (Literal -> CharLiteral .)
+    LESS            reduce using rule 70 (Literal -> CharLiteral .)
+    GREATER_EQUAL   reduce using rule 70 (Literal -> CharLiteral .)
+    LESS_EQUAL      reduce using rule 70 (Literal -> CharLiteral .)
+    EQUAL           reduce using rule 70 (Literal -> CharLiteral .)
+    NOT_EQUAL       reduce using rule 70 (Literal -> CharLiteral .)
+    LOGICAL_AND     reduce using rule 70 (Literal -> CharLiteral .)
+    LOGICAL_OR      reduce using rule 70 (Literal -> CharLiteral .)
+
+
+state 78
+
+    (71) Literal -> BoolLiteral .
+
+    SEMICOLON       reduce using rule 71 (Literal -> BoolLiteral .)
+    RPAREN          reduce using rule 71 (Literal -> BoolLiteral .)
+    RBRACKET        reduce using rule 71 (Literal -> BoolLiteral .)
+    COMMA           reduce using rule 71 (Literal -> BoolLiteral .)
+    PLUS            reduce using rule 71 (Literal -> BoolLiteral .)
+    MINUS           reduce using rule 71 (Literal -> BoolLiteral .)
+    MULTIPLY        reduce using rule 71 (Literal -> BoolLiteral .)
+    DIVIDE          reduce using rule 71 (Literal -> BoolLiteral .)
+    MODULO          reduce using rule 71 (Literal -> BoolLiteral .)
+    SHIFT_L         reduce using rule 71 (Literal -> BoolLiteral .)
+    SHIFT_R         reduce using rule 71 (Literal -> BoolLiteral .)
+    LSHIFT_R        reduce using rule 71 (Literal -> BoolLiteral .)
+    GREATER         reduce using rule 71 (Literal -> BoolLiteral .)
+    LESS            reduce using rule 71 (Literal -> BoolLiteral .)
+    GREATER_EQUAL   reduce using rule 71 (Literal -> BoolLiteral .)
+    LESS_EQUAL      reduce using rule 71 (Literal -> BoolLiteral .)
+    EQUAL           reduce using rule 71 (Literal -> BoolLiteral .)
+    NOT_EQUAL       reduce using rule 71 (Literal -> BoolLiteral .)
+    LOGICAL_AND     reduce using rule 71 (Literal -> BoolLiteral .)
+    LOGICAL_OR      reduce using rule 71 (Literal -> BoolLiteral .)
+
+
+state 79
+
+    (78) CharLiteral -> CHAR_LITERAL .
+
+    SEMICOLON       reduce using rule 78 (CharLiteral -> CHAR_LITERAL .)
+    RPAREN          reduce using rule 78 (CharLiteral -> CHAR_LITERAL .)
+    RBRACKET        reduce using rule 78 (CharLiteral -> CHAR_LITERAL .)
+    COMMA           reduce using rule 78 (CharLiteral -> CHAR_LITERAL .)
+    PLUS            reduce using rule 78 (CharLiteral -> CHAR_LITERAL .)
+    MINUS           reduce using rule 78 (CharLiteral -> CHAR_LITERAL .)
+    MULTIPLY        reduce using rule 78 (CharLiteral -> CHAR_LITERAL .)
+    DIVIDE          reduce using rule 78 (CharLiteral -> CHAR_LITERAL .)
+    MODULO          reduce using rule 78 (CharLiteral -> CHAR_LITERAL .)
+    SHIFT_L         reduce using rule 78 (CharLiteral -> CHAR_LITERAL .)
+    SHIFT_R         reduce using rule 78 (CharLiteral -> CHAR_LITERAL .)
+    LSHIFT_R        reduce using rule 78 (CharLiteral -> CHAR_LITERAL .)
+    GREATER         reduce using rule 78 (CharLiteral -> CHAR_LITERAL .)
+    LESS            reduce using rule 78 (CharLiteral -> CHAR_LITERAL .)
+    GREATER_EQUAL   reduce using rule 78 (CharLiteral -> CHAR_LITERAL .)
+    LESS_EQUAL      reduce using rule 78 (CharLiteral -> CHAR_LITERAL .)
+    EQUAL           reduce using rule 78 (CharLiteral -> CHAR_LITERAL .)
+    NOT_EQUAL       reduce using rule 78 (CharLiteral -> CHAR_LITERAL .)
+    LOGICAL_AND     reduce using rule 78 (CharLiteral -> CHAR_LITERAL .)
+    LOGICAL_OR      reduce using rule 78 (CharLiteral -> CHAR_LITERAL .)
+
+
+state 80
+
+    (76) BoolLiteral -> TRUE .
+
+    SEMICOLON       reduce using rule 76 (BoolLiteral -> TRUE .)
+    RPAREN          reduce using rule 76 (BoolLiteral -> TRUE .)
+    RBRACKET        reduce using rule 76 (BoolLiteral -> TRUE .)
+    COMMA           reduce using rule 76 (BoolLiteral -> TRUE .)
+    PLUS            reduce using rule 76 (BoolLiteral -> TRUE .)
+    MINUS           reduce using rule 76 (BoolLiteral -> TRUE .)
+    MULTIPLY        reduce using rule 76 (BoolLiteral -> TRUE .)
+    DIVIDE          reduce using rule 76 (BoolLiteral -> TRUE .)
+    MODULO          reduce using rule 76 (BoolLiteral -> TRUE .)
+    SHIFT_L         reduce using rule 76 (BoolLiteral -> TRUE .)
+    SHIFT_R         reduce using rule 76 (BoolLiteral -> TRUE .)
+    LSHIFT_R        reduce using rule 76 (BoolLiteral -> TRUE .)
+    GREATER         reduce using rule 76 (BoolLiteral -> TRUE .)
+    LESS            reduce using rule 76 (BoolLiteral -> TRUE .)
+    GREATER_EQUAL   reduce using rule 76 (BoolLiteral -> TRUE .)
+    LESS_EQUAL      reduce using rule 76 (BoolLiteral -> TRUE .)
+    EQUAL           reduce using rule 76 (BoolLiteral -> TRUE .)
+    NOT_EQUAL       reduce using rule 76 (BoolLiteral -> TRUE .)
+    LOGICAL_AND     reduce using rule 76 (BoolLiteral -> TRUE .)
+    LOGICAL_OR      reduce using rule 76 (BoolLiteral -> TRUE .)
+
+
+state 81
+
+    (77) BoolLiteral -> FALSE .
+
+    SEMICOLON       reduce using rule 77 (BoolLiteral -> FALSE .)
+    RPAREN          reduce using rule 77 (BoolLiteral -> FALSE .)
+    RBRACKET        reduce using rule 77 (BoolLiteral -> FALSE .)
+    COMMA           reduce using rule 77 (BoolLiteral -> FALSE .)
+    PLUS            reduce using rule 77 (BoolLiteral -> FALSE .)
+    MINUS           reduce using rule 77 (BoolLiteral -> FALSE .)
+    MULTIPLY        reduce using rule 77 (BoolLiteral -> FALSE .)
+    DIVIDE          reduce using rule 77 (BoolLiteral -> FALSE .)
+    MODULO          reduce using rule 77 (BoolLiteral -> FALSE .)
+    SHIFT_L         reduce using rule 77 (BoolLiteral -> FALSE .)
+    SHIFT_R         reduce using rule 77 (BoolLiteral -> FALSE .)
+    LSHIFT_R        reduce using rule 77 (BoolLiteral -> FALSE .)
+    GREATER         reduce using rule 77 (BoolLiteral -> FALSE .)
+    LESS            reduce using rule 77 (BoolLiteral -> FALSE .)
+    GREATER_EQUAL   reduce using rule 77 (BoolLiteral -> FALSE .)
+    LESS_EQUAL      reduce using rule 77 (BoolLiteral -> FALSE .)
+    EQUAL           reduce using rule 77 (BoolLiteral -> FALSE .)
+    NOT_EQUAL       reduce using rule 77 (BoolLiteral -> FALSE .)
+    LOGICAL_AND     reduce using rule 77 (BoolLiteral -> FALSE .)
+    LOGICAL_OR      reduce using rule 77 (BoolLiteral -> FALSE .)
+
+
+state 82
+
+    (27) Statement -> BREAK SEMICOLON .
+
+    IF              reduce using rule 27 (Statement -> BREAK SEMICOLON .)
+    WHILE           reduce using rule 27 (Statement -> BREAK SEMICOLON .)
+    RETURN          reduce using rule 27 (Statement -> BREAK SEMICOLON .)
+    BREAK           reduce using rule 27 (Statement -> BREAK SEMICOLON .)
+    CONTINUE        reduce using rule 27 (Statement -> BREAK SEMICOLON .)
+    LBRACE          reduce using rule 27 (Statement -> BREAK SEMICOLON .)
+    IDENTIFIER      reduce using rule 27 (Statement -> BREAK SEMICOLON .)
+    CALLOUT         reduce using rule 27 (Statement -> BREAK SEMICOLON .)
+    RBRACE          reduce using rule 27 (Statement -> BREAK SEMICOLON .)
+
+
+state 83
+
+    (28) Statement -> CONTINUE SEMICOLON .
+
+    IF              reduce using rule 28 (Statement -> CONTINUE SEMICOLON .)
+    WHILE           reduce using rule 28 (Statement -> CONTINUE SEMICOLON .)
+    RETURN          reduce using rule 28 (Statement -> CONTINUE SEMICOLON .)
+    BREAK           reduce using rule 28 (Statement -> CONTINUE SEMICOLON .)
+    CONTINUE        reduce using rule 28 (Statement -> CONTINUE SEMICOLON .)
+    LBRACE          reduce using rule 28 (Statement -> CONTINUE SEMICOLON .)
+    IDENTIFIER      reduce using rule 28 (Statement -> CONTINUE SEMICOLON .)
+    CALLOUT         reduce using rule 28 (Statement -> CONTINUE SEMICOLON .)
+    RBRACE          reduce using rule 28 (Statement -> CONTINUE SEMICOLON .)
+
+
+state 84
+
+    (35) Location -> IDENTIFIER LBRACKET . Expression RBRACKET
+    (38) Expression -> . Location
+    (39) Expression -> . MethodCall
+    (40) Expression -> . Literal
+    (41) Expression -> . Expression BinOp Expression
+    (42) Expression -> . MINUS Expression
+    (43) Expression -> . NOT Expression
+    (44) Expression -> . LPAREN Expression RPAREN
+    (34) Location -> . IDENTIFIER
+    (35) Location -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (30) MethodCall -> . IDENTIFIER LPAREN RPAREN
+    (31) MethodCall -> . IDENTIFIER LPAREN ExpressionList RPAREN
+    (32) MethodCall -> . CALLOUT LPAREN StringLiteral RPAREN
+    (33) MethodCall -> . CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN
+    (69) Literal -> . IntLiteral
+    (70) Literal -> . CharLiteral
+    (71) Literal -> . BoolLiteral
+    (72) IntLiteral -> . DecimalLiteral
+    (73) IntLiteral -> . HexLiteral
+    (78) CharLiteral -> . CHAR_LITERAL
+    (76) BoolLiteral -> . TRUE
+    (77) BoolLiteral -> . FALSE
+    (74) DecimalLiteral -> . NUMBER
+    (75) HexLiteral -> . HEX_NUMBER
+
+    MINUS           shift and go to state 73
+    NOT             shift and go to state 74
+    LPAREN          shift and go to state 75
+    IDENTIFIER      shift and go to state 58
+    CALLOUT         shift and go to state 59
+    CHAR_LITERAL    shift and go to state 79
+    TRUE            shift and go to state 80
+    FALSE           shift and go to state 81
+    NUMBER          shift and go to state 29
+    HEX_NUMBER      shift and go to state 30
+
+    Expression                     shift and go to state 116
+    Location                       shift and go to state 70
+    MethodCall                     shift and go to state 71
+    Literal                        shift and go to state 72
+    IntLiteral                     shift and go to state 76
+    CharLiteral                    shift and go to state 77
+    BoolLiteral                    shift and go to state 78
+    DecimalLiteral                 shift and go to state 27
+    HexLiteral                     shift and go to state 28
+
+state 85
+
+    (30) MethodCall -> IDENTIFIER LPAREN . RPAREN
+    (31) MethodCall -> IDENTIFIER LPAREN . ExpressionList RPAREN
+    (36) ExpressionList -> . Expression
+    (37) ExpressionList -> . Expression COMMA ExpressionList
+    (38) Expression -> . Location
+    (39) Expression -> . MethodCall
+    (40) Expression -> . Literal
+    (41) Expression -> . Expression BinOp Expression
+    (42) Expression -> . MINUS Expression
+    (43) Expression -> . NOT Expression
+    (44) Expression -> . LPAREN Expression RPAREN
+    (34) Location -> . IDENTIFIER
+    (35) Location -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (30) MethodCall -> . IDENTIFIER LPAREN RPAREN
+    (31) MethodCall -> . IDENTIFIER LPAREN ExpressionList RPAREN
+    (32) MethodCall -> . CALLOUT LPAREN StringLiteral RPAREN
+    (33) MethodCall -> . CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN
+    (69) Literal -> . IntLiteral
+    (70) Literal -> . CharLiteral
+    (71) Literal -> . BoolLiteral
+    (72) IntLiteral -> . DecimalLiteral
+    (73) IntLiteral -> . HexLiteral
+    (78) CharLiteral -> . CHAR_LITERAL
+    (76) BoolLiteral -> . TRUE
+    (77) BoolLiteral -> . FALSE
+    (74) DecimalLiteral -> . NUMBER
+    (75) HexLiteral -> . HEX_NUMBER
+
+    RPAREN          shift and go to state 117
+    MINUS           shift and go to state 73
+    NOT             shift and go to state 74
+    LPAREN          shift and go to state 75
+    IDENTIFIER      shift and go to state 58
+    CALLOUT         shift and go to state 59
+    CHAR_LITERAL    shift and go to state 79
+    TRUE            shift and go to state 80
+    FALSE           shift and go to state 81
+    NUMBER          shift and go to state 29
+    HEX_NUMBER      shift and go to state 30
+
+    ExpressionList                 shift and go to state 118
+    Expression                     shift and go to state 119
+    Location                       shift and go to state 70
+    MethodCall                     shift and go to state 71
+    Literal                        shift and go to state 72
+    IntLiteral                     shift and go to state 76
+    CharLiteral                    shift and go to state 77
+    BoolLiteral                    shift and go to state 78
+    DecimalLiteral                 shift and go to state 27
+    HexLiteral                     shift and go to state 28
+
+state 86
+
+    (32) MethodCall -> CALLOUT LPAREN . StringLiteral RPAREN
+    (33) MethodCall -> CALLOUT LPAREN . StringLiteral COMMA CalloutArgList RPAREN
+    (79) StringLiteral -> . STRING_LITERAL
+
+    STRING_LITERAL  shift and go to state 121
+
+    StringLiteral                  shift and go to state 120
+
+state 87
+
+    (15) VarDecl -> Type IDENTIFIER SEMICOLON .
+
+    INT             reduce using rule 15 (VarDecl -> Type IDENTIFIER SEMICOLON .)
+    BOOLEAN         reduce using rule 15 (VarDecl -> Type IDENTIFIER SEMICOLON .)
+    IF              reduce using rule 15 (VarDecl -> Type IDENTIFIER SEMICOLON .)
+    WHILE           reduce using rule 15 (VarDecl -> Type IDENTIFIER SEMICOLON .)
+    RETURN          reduce using rule 15 (VarDecl -> Type IDENTIFIER SEMICOLON .)
+    BREAK           reduce using rule 15 (VarDecl -> Type IDENTIFIER SEMICOLON .)
+    CONTINUE        reduce using rule 15 (VarDecl -> Type IDENTIFIER SEMICOLON .)
+    LBRACE          reduce using rule 15 (VarDecl -> Type IDENTIFIER SEMICOLON .)
+    IDENTIFIER      reduce using rule 15 (VarDecl -> Type IDENTIFIER SEMICOLON .)
+    CALLOUT         reduce using rule 15 (VarDecl -> Type IDENTIFIER SEMICOLON .)
+    RBRACE          reduce using rule 15 (VarDecl -> Type IDENTIFIER SEMICOLON .)
+
+
+state 88
+
+    (20) Statement -> Location ASSIGN Expression . SEMICOLON
+    (41) Expression -> Expression . BinOp Expression
+    (49) BinOp -> . ArithOp
+    (50) BinOp -> . RelOp
+    (51) BinOp -> . EqOp
+    (52) BinOp -> . CondOp
+    (53) ArithOp -> . PLUS
+    (54) ArithOp -> . MINUS
+    (55) ArithOp -> . MULTIPLY
+    (56) ArithOp -> . DIVIDE
+    (57) ArithOp -> . MODULO
+    (58) ArithOp -> . SHIFT_L
+    (59) ArithOp -> . SHIFT_R
+    (60) ArithOp -> . LSHIFT_R
+    (61) RelOp -> . GREATER
+    (62) RelOp -> . LESS
+    (63) RelOp -> . GREATER_EQUAL
+    (64) RelOp -> . LESS_EQUAL
+    (65) EqOp -> . EQUAL
+    (66) EqOp -> . NOT_EQUAL
+    (67) CondOp -> . LOGICAL_AND
+    (68) CondOp -> . LOGICAL_OR
+
+    SEMICOLON       shift and go to state 122
+    PLUS            shift and go to state 97
+    MINUS           shift and go to state 98
+    MULTIPLY        shift and go to state 99
+    DIVIDE          shift and go to state 100
+    MODULO          shift and go to state 101
+    SHIFT_L         shift and go to state 102
+    SHIFT_R         shift and go to state 103
+    LSHIFT_R        shift and go to state 104
+    GREATER         shift and go to state 105
+    LESS            shift and go to state 106
+    GREATER_EQUAL   shift and go to state 107
+    LESS_EQUAL      shift and go to state 108
+    EQUAL           shift and go to state 109
+    NOT_EQUAL       shift and go to state 110
+    LOGICAL_AND     shift and go to state 111
+    LOGICAL_OR      shift and go to state 112
+
+    BinOp                          shift and go to state 92
+    ArithOp                        shift and go to state 93
+    RelOp                          shift and go to state 94
+    EqOp                           shift and go to state 95
+    CondOp                         shift and go to state 96
+
+state 89
+
+    (22) Statement -> IF LPAREN Expression . RPAREN Block
+    (23) Statement -> IF LPAREN Expression . RPAREN Block ELSE Block
+    (41) Expression -> Expression . BinOp Expression
+    (49) BinOp -> . ArithOp
+    (50) BinOp -> . RelOp
+    (51) BinOp -> . EqOp
+    (52) BinOp -> . CondOp
+    (53) ArithOp -> . PLUS
+    (54) ArithOp -> . MINUS
+    (55) ArithOp -> . MULTIPLY
+    (56) ArithOp -> . DIVIDE
+    (57) ArithOp -> . MODULO
+    (58) ArithOp -> . SHIFT_L
+    (59) ArithOp -> . SHIFT_R
+    (60) ArithOp -> . LSHIFT_R
+    (61) RelOp -> . GREATER
+    (62) RelOp -> . LESS
+    (63) RelOp -> . GREATER_EQUAL
+    (64) RelOp -> . LESS_EQUAL
+    (65) EqOp -> . EQUAL
+    (66) EqOp -> . NOT_EQUAL
+    (67) CondOp -> . LOGICAL_AND
+    (68) CondOp -> . LOGICAL_OR
+
+    RPAREN          shift and go to state 123
+    PLUS            shift and go to state 97
+    MINUS           shift and go to state 98
+    MULTIPLY        shift and go to state 99
+    DIVIDE          shift and go to state 100
+    MODULO          shift and go to state 101
+    SHIFT_L         shift and go to state 102
+    SHIFT_R         shift and go to state 103
+    LSHIFT_R        shift and go to state 104
+    GREATER         shift and go to state 105
+    LESS            shift and go to state 106
+    GREATER_EQUAL   shift and go to state 107
+    LESS_EQUAL      shift and go to state 108
+    EQUAL           shift and go to state 109
+    NOT_EQUAL       shift and go to state 110
+    LOGICAL_AND     shift and go to state 111
+    LOGICAL_OR      shift and go to state 112
+
+    BinOp                          shift and go to state 92
+    ArithOp                        shift and go to state 93
+    RelOp                          shift and go to state 94
+    EqOp                           shift and go to state 95
+    CondOp                         shift and go to state 96
+
+state 90
+
+    (24) Statement -> WHILE LPAREN Expression . RPAREN Block
+    (41) Expression -> Expression . BinOp Expression
+    (49) BinOp -> . ArithOp
+    (50) BinOp -> . RelOp
+    (51) BinOp -> . EqOp
+    (52) BinOp -> . CondOp
+    (53) ArithOp -> . PLUS
+    (54) ArithOp -> . MINUS
+    (55) ArithOp -> . MULTIPLY
+    (56) ArithOp -> . DIVIDE
+    (57) ArithOp -> . MODULO
+    (58) ArithOp -> . SHIFT_L
+    (59) ArithOp -> . SHIFT_R
+    (60) ArithOp -> . LSHIFT_R
+    (61) RelOp -> . GREATER
+    (62) RelOp -> . LESS
+    (63) RelOp -> . GREATER_EQUAL
+    (64) RelOp -> . LESS_EQUAL
+    (65) EqOp -> . EQUAL
+    (66) EqOp -> . NOT_EQUAL
+    (67) CondOp -> . LOGICAL_AND
+    (68) CondOp -> . LOGICAL_OR
+
+    RPAREN          shift and go to state 124
+    PLUS            shift and go to state 97
+    MINUS           shift and go to state 98
+    MULTIPLY        shift and go to state 99
+    DIVIDE          shift and go to state 100
+    MODULO          shift and go to state 101
+    SHIFT_L         shift and go to state 102
+    SHIFT_R         shift and go to state 103
+    LSHIFT_R        shift and go to state 104
+    GREATER         shift and go to state 105
+    LESS            shift and go to state 106
+    GREATER_EQUAL   shift and go to state 107
+    LESS_EQUAL      shift and go to state 108
+    EQUAL           shift and go to state 109
+    NOT_EQUAL       shift and go to state 110
+    LOGICAL_AND     shift and go to state 111
+    LOGICAL_OR      shift and go to state 112
+
+    BinOp                          shift and go to state 92
+    ArithOp                        shift and go to state 93
+    RelOp                          shift and go to state 94
+    EqOp                           shift and go to state 95
+    CondOp                         shift and go to state 96
+
+state 91
+
+    (25) Statement -> RETURN Expression SEMICOLON .
+
+    IF              reduce using rule 25 (Statement -> RETURN Expression SEMICOLON .)
+    WHILE           reduce using rule 25 (Statement -> RETURN Expression SEMICOLON .)
+    RETURN          reduce using rule 25 (Statement -> RETURN Expression SEMICOLON .)
+    BREAK           reduce using rule 25 (Statement -> RETURN Expression SEMICOLON .)
+    CONTINUE        reduce using rule 25 (Statement -> RETURN Expression SEMICOLON .)
+    LBRACE          reduce using rule 25 (Statement -> RETURN Expression SEMICOLON .)
+    IDENTIFIER      reduce using rule 25 (Statement -> RETURN Expression SEMICOLON .)
+    CALLOUT         reduce using rule 25 (Statement -> RETURN Expression SEMICOLON .)
+    RBRACE          reduce using rule 25 (Statement -> RETURN Expression SEMICOLON .)
+
+
+state 92
+
+    (41) Expression -> Expression BinOp . Expression
+    (38) Expression -> . Location
+    (39) Expression -> . MethodCall
+    (40) Expression -> . Literal
+    (41) Expression -> . Expression BinOp Expression
+    (42) Expression -> . MINUS Expression
+    (43) Expression -> . NOT Expression
+    (44) Expression -> . LPAREN Expression RPAREN
+    (34) Location -> . IDENTIFIER
+    (35) Location -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (30) MethodCall -> . IDENTIFIER LPAREN RPAREN
+    (31) MethodCall -> . IDENTIFIER LPAREN ExpressionList RPAREN
+    (32) MethodCall -> . CALLOUT LPAREN StringLiteral RPAREN
+    (33) MethodCall -> . CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN
+    (69) Literal -> . IntLiteral
+    (70) Literal -> . CharLiteral
+    (71) Literal -> . BoolLiteral
+    (72) IntLiteral -> . DecimalLiteral
+    (73) IntLiteral -> . HexLiteral
+    (78) CharLiteral -> . CHAR_LITERAL
+    (76) BoolLiteral -> . TRUE
+    (77) BoolLiteral -> . FALSE
+    (74) DecimalLiteral -> . NUMBER
+    (75) HexLiteral -> . HEX_NUMBER
+
+    MINUS           shift and go to state 73
+    NOT             shift and go to state 74
+    LPAREN          shift and go to state 75
+    IDENTIFIER      shift and go to state 58
+    CALLOUT         shift and go to state 59
+    CHAR_LITERAL    shift and go to state 79
+    TRUE            shift and go to state 80
+    FALSE           shift and go to state 81
+    NUMBER          shift and go to state 29
+    HEX_NUMBER      shift and go to state 30
+
+    Expression                     shift and go to state 125
+    Location                       shift and go to state 70
+    MethodCall                     shift and go to state 71
+    Literal                        shift and go to state 72
+    IntLiteral                     shift and go to state 76
+    CharLiteral                    shift and go to state 77
+    BoolLiteral                    shift and go to state 78
+    DecimalLiteral                 shift and go to state 27
+    HexLiteral                     shift and go to state 28
+
+state 93
+
+    (49) BinOp -> ArithOp .
+
+    IDENTIFIER      reduce using rule 49 (BinOp -> ArithOp .)
+    MINUS           reduce using rule 49 (BinOp -> ArithOp .)
+    NOT             reduce using rule 49 (BinOp -> ArithOp .)
+    LPAREN          reduce using rule 49 (BinOp -> ArithOp .)
+    CALLOUT         reduce using rule 49 (BinOp -> ArithOp .)
+    NUMBER          reduce using rule 49 (BinOp -> ArithOp .)
+    HEX_NUMBER      reduce using rule 49 (BinOp -> ArithOp .)
+    CHAR_LITERAL    reduce using rule 49 (BinOp -> ArithOp .)
+    TRUE            reduce using rule 49 (BinOp -> ArithOp .)
+    FALSE           reduce using rule 49 (BinOp -> ArithOp .)
+
+
+state 94
+
+    (50) BinOp -> RelOp .
+
+    IDENTIFIER      reduce using rule 50 (BinOp -> RelOp .)
+    MINUS           reduce using rule 50 (BinOp -> RelOp .)
+    NOT             reduce using rule 50 (BinOp -> RelOp .)
+    LPAREN          reduce using rule 50 (BinOp -> RelOp .)
+    CALLOUT         reduce using rule 50 (BinOp -> RelOp .)
+    NUMBER          reduce using rule 50 (BinOp -> RelOp .)
+    HEX_NUMBER      reduce using rule 50 (BinOp -> RelOp .)
+    CHAR_LITERAL    reduce using rule 50 (BinOp -> RelOp .)
+    TRUE            reduce using rule 50 (BinOp -> RelOp .)
+    FALSE           reduce using rule 50 (BinOp -> RelOp .)
+
+
+state 95
+
+    (51) BinOp -> EqOp .
+
+    IDENTIFIER      reduce using rule 51 (BinOp -> EqOp .)
+    MINUS           reduce using rule 51 (BinOp -> EqOp .)
+    NOT             reduce using rule 51 (BinOp -> EqOp .)
+    LPAREN          reduce using rule 51 (BinOp -> EqOp .)
+    CALLOUT         reduce using rule 51 (BinOp -> EqOp .)
+    NUMBER          reduce using rule 51 (BinOp -> EqOp .)
+    HEX_NUMBER      reduce using rule 51 (BinOp -> EqOp .)
+    CHAR_LITERAL    reduce using rule 51 (BinOp -> EqOp .)
+    TRUE            reduce using rule 51 (BinOp -> EqOp .)
+    FALSE           reduce using rule 51 (BinOp -> EqOp .)
+
+
+state 96
+
+    (52) BinOp -> CondOp .
+
+    IDENTIFIER      reduce using rule 52 (BinOp -> CondOp .)
+    MINUS           reduce using rule 52 (BinOp -> CondOp .)
+    NOT             reduce using rule 52 (BinOp -> CondOp .)
+    LPAREN          reduce using rule 52 (BinOp -> CondOp .)
+    CALLOUT         reduce using rule 52 (BinOp -> CondOp .)
+    NUMBER          reduce using rule 52 (BinOp -> CondOp .)
+    HEX_NUMBER      reduce using rule 52 (BinOp -> CondOp .)
+    CHAR_LITERAL    reduce using rule 52 (BinOp -> CondOp .)
+    TRUE            reduce using rule 52 (BinOp -> CondOp .)
+    FALSE           reduce using rule 52 (BinOp -> CondOp .)
+
+
+state 97
+
+    (53) ArithOp -> PLUS .
+
+    IDENTIFIER      reduce using rule 53 (ArithOp -> PLUS .)
+    MINUS           reduce using rule 53 (ArithOp -> PLUS .)
+    NOT             reduce using rule 53 (ArithOp -> PLUS .)
+    LPAREN          reduce using rule 53 (ArithOp -> PLUS .)
+    CALLOUT         reduce using rule 53 (ArithOp -> PLUS .)
+    NUMBER          reduce using rule 53 (ArithOp -> PLUS .)
+    HEX_NUMBER      reduce using rule 53 (ArithOp -> PLUS .)
+    CHAR_LITERAL    reduce using rule 53 (ArithOp -> PLUS .)
+    TRUE            reduce using rule 53 (ArithOp -> PLUS .)
+    FALSE           reduce using rule 53 (ArithOp -> PLUS .)
+
+
+state 98
+
+    (54) ArithOp -> MINUS .
+
+    IDENTIFIER      reduce using rule 54 (ArithOp -> MINUS .)
+    MINUS           reduce using rule 54 (ArithOp -> MINUS .)
+    NOT             reduce using rule 54 (ArithOp -> MINUS .)
+    LPAREN          reduce using rule 54 (ArithOp -> MINUS .)
+    CALLOUT         reduce using rule 54 (ArithOp -> MINUS .)
+    NUMBER          reduce using rule 54 (ArithOp -> MINUS .)
+    HEX_NUMBER      reduce using rule 54 (ArithOp -> MINUS .)
+    CHAR_LITERAL    reduce using rule 54 (ArithOp -> MINUS .)
+    TRUE            reduce using rule 54 (ArithOp -> MINUS .)
+    FALSE           reduce using rule 54 (ArithOp -> MINUS .)
+
+
+state 99
+
+    (55) ArithOp -> MULTIPLY .
+
+    IDENTIFIER      reduce using rule 55 (ArithOp -> MULTIPLY .)
+    MINUS           reduce using rule 55 (ArithOp -> MULTIPLY .)
+    NOT             reduce using rule 55 (ArithOp -> MULTIPLY .)
+    LPAREN          reduce using rule 55 (ArithOp -> MULTIPLY .)
+    CALLOUT         reduce using rule 55 (ArithOp -> MULTIPLY .)
+    NUMBER          reduce using rule 55 (ArithOp -> MULTIPLY .)
+    HEX_NUMBER      reduce using rule 55 (ArithOp -> MULTIPLY .)
+    CHAR_LITERAL    reduce using rule 55 (ArithOp -> MULTIPLY .)
+    TRUE            reduce using rule 55 (ArithOp -> MULTIPLY .)
+    FALSE           reduce using rule 55 (ArithOp -> MULTIPLY .)
+
+
+state 100
+
+    (56) ArithOp -> DIVIDE .
+
+    IDENTIFIER      reduce using rule 56 (ArithOp -> DIVIDE .)
+    MINUS           reduce using rule 56 (ArithOp -> DIVIDE .)
+    NOT             reduce using rule 56 (ArithOp -> DIVIDE .)
+    LPAREN          reduce using rule 56 (ArithOp -> DIVIDE .)
+    CALLOUT         reduce using rule 56 (ArithOp -> DIVIDE .)
+    NUMBER          reduce using rule 56 (ArithOp -> DIVIDE .)
+    HEX_NUMBER      reduce using rule 56 (ArithOp -> DIVIDE .)
+    CHAR_LITERAL    reduce using rule 56 (ArithOp -> DIVIDE .)
+    TRUE            reduce using rule 56 (ArithOp -> DIVIDE .)
+    FALSE           reduce using rule 56 (ArithOp -> DIVIDE .)
+
+
+state 101
+
+    (57) ArithOp -> MODULO .
+
+    IDENTIFIER      reduce using rule 57 (ArithOp -> MODULO .)
+    MINUS           reduce using rule 57 (ArithOp -> MODULO .)
+    NOT             reduce using rule 57 (ArithOp -> MODULO .)
+    LPAREN          reduce using rule 57 (ArithOp -> MODULO .)
+    CALLOUT         reduce using rule 57 (ArithOp -> MODULO .)
+    NUMBER          reduce using rule 57 (ArithOp -> MODULO .)
+    HEX_NUMBER      reduce using rule 57 (ArithOp -> MODULO .)
+    CHAR_LITERAL    reduce using rule 57 (ArithOp -> MODULO .)
+    TRUE            reduce using rule 57 (ArithOp -> MODULO .)
+    FALSE           reduce using rule 57 (ArithOp -> MODULO .)
+
+
+state 102
+
+    (58) ArithOp -> SHIFT_L .
+
+    IDENTIFIER      reduce using rule 58 (ArithOp -> SHIFT_L .)
+    MINUS           reduce using rule 58 (ArithOp -> SHIFT_L .)
+    NOT             reduce using rule 58 (ArithOp -> SHIFT_L .)
+    LPAREN          reduce using rule 58 (ArithOp -> SHIFT_L .)
+    CALLOUT         reduce using rule 58 (ArithOp -> SHIFT_L .)
+    NUMBER          reduce using rule 58 (ArithOp -> SHIFT_L .)
+    HEX_NUMBER      reduce using rule 58 (ArithOp -> SHIFT_L .)
+    CHAR_LITERAL    reduce using rule 58 (ArithOp -> SHIFT_L .)
+    TRUE            reduce using rule 58 (ArithOp -> SHIFT_L .)
+    FALSE           reduce using rule 58 (ArithOp -> SHIFT_L .)
+
+
+state 103
+
+    (59) ArithOp -> SHIFT_R .
+
+    IDENTIFIER      reduce using rule 59 (ArithOp -> SHIFT_R .)
+    MINUS           reduce using rule 59 (ArithOp -> SHIFT_R .)
+    NOT             reduce using rule 59 (ArithOp -> SHIFT_R .)
+    LPAREN          reduce using rule 59 (ArithOp -> SHIFT_R .)
+    CALLOUT         reduce using rule 59 (ArithOp -> SHIFT_R .)
+    NUMBER          reduce using rule 59 (ArithOp -> SHIFT_R .)
+    HEX_NUMBER      reduce using rule 59 (ArithOp -> SHIFT_R .)
+    CHAR_LITERAL    reduce using rule 59 (ArithOp -> SHIFT_R .)
+    TRUE            reduce using rule 59 (ArithOp -> SHIFT_R .)
+    FALSE           reduce using rule 59 (ArithOp -> SHIFT_R .)
+
+
+state 104
+
+    (60) ArithOp -> LSHIFT_R .
+
+    IDENTIFIER      reduce using rule 60 (ArithOp -> LSHIFT_R .)
+    MINUS           reduce using rule 60 (ArithOp -> LSHIFT_R .)
+    NOT             reduce using rule 60 (ArithOp -> LSHIFT_R .)
+    LPAREN          reduce using rule 60 (ArithOp -> LSHIFT_R .)
+    CALLOUT         reduce using rule 60 (ArithOp -> LSHIFT_R .)
+    NUMBER          reduce using rule 60 (ArithOp -> LSHIFT_R .)
+    HEX_NUMBER      reduce using rule 60 (ArithOp -> LSHIFT_R .)
+    CHAR_LITERAL    reduce using rule 60 (ArithOp -> LSHIFT_R .)
+    TRUE            reduce using rule 60 (ArithOp -> LSHIFT_R .)
+    FALSE           reduce using rule 60 (ArithOp -> LSHIFT_R .)
+
+
+state 105
+
+    (61) RelOp -> GREATER .
+
+    IDENTIFIER      reduce using rule 61 (RelOp -> GREATER .)
+    MINUS           reduce using rule 61 (RelOp -> GREATER .)
+    NOT             reduce using rule 61 (RelOp -> GREATER .)
+    LPAREN          reduce using rule 61 (RelOp -> GREATER .)
+    CALLOUT         reduce using rule 61 (RelOp -> GREATER .)
+    NUMBER          reduce using rule 61 (RelOp -> GREATER .)
+    HEX_NUMBER      reduce using rule 61 (RelOp -> GREATER .)
+    CHAR_LITERAL    reduce using rule 61 (RelOp -> GREATER .)
+    TRUE            reduce using rule 61 (RelOp -> GREATER .)
+    FALSE           reduce using rule 61 (RelOp -> GREATER .)
+
+
+state 106
+
+    (62) RelOp -> LESS .
+
+    IDENTIFIER      reduce using rule 62 (RelOp -> LESS .)
+    MINUS           reduce using rule 62 (RelOp -> LESS .)
+    NOT             reduce using rule 62 (RelOp -> LESS .)
+    LPAREN          reduce using rule 62 (RelOp -> LESS .)
+    CALLOUT         reduce using rule 62 (RelOp -> LESS .)
+    NUMBER          reduce using rule 62 (RelOp -> LESS .)
+    HEX_NUMBER      reduce using rule 62 (RelOp -> LESS .)
+    CHAR_LITERAL    reduce using rule 62 (RelOp -> LESS .)
+    TRUE            reduce using rule 62 (RelOp -> LESS .)
+    FALSE           reduce using rule 62 (RelOp -> LESS .)
+
+
+state 107
+
+    (63) RelOp -> GREATER_EQUAL .
+
+    IDENTIFIER      reduce using rule 63 (RelOp -> GREATER_EQUAL .)
+    MINUS           reduce using rule 63 (RelOp -> GREATER_EQUAL .)
+    NOT             reduce using rule 63 (RelOp -> GREATER_EQUAL .)
+    LPAREN          reduce using rule 63 (RelOp -> GREATER_EQUAL .)
+    CALLOUT         reduce using rule 63 (RelOp -> GREATER_EQUAL .)
+    NUMBER          reduce using rule 63 (RelOp -> GREATER_EQUAL .)
+    HEX_NUMBER      reduce using rule 63 (RelOp -> GREATER_EQUAL .)
+    CHAR_LITERAL    reduce using rule 63 (RelOp -> GREATER_EQUAL .)
+    TRUE            reduce using rule 63 (RelOp -> GREATER_EQUAL .)
+    FALSE           reduce using rule 63 (RelOp -> GREATER_EQUAL .)
+
+
+state 108
+
+    (64) RelOp -> LESS_EQUAL .
+
+    IDENTIFIER      reduce using rule 64 (RelOp -> LESS_EQUAL .)
+    MINUS           reduce using rule 64 (RelOp -> LESS_EQUAL .)
+    NOT             reduce using rule 64 (RelOp -> LESS_EQUAL .)
+    LPAREN          reduce using rule 64 (RelOp -> LESS_EQUAL .)
+    CALLOUT         reduce using rule 64 (RelOp -> LESS_EQUAL .)
+    NUMBER          reduce using rule 64 (RelOp -> LESS_EQUAL .)
+    HEX_NUMBER      reduce using rule 64 (RelOp -> LESS_EQUAL .)
+    CHAR_LITERAL    reduce using rule 64 (RelOp -> LESS_EQUAL .)
+    TRUE            reduce using rule 64 (RelOp -> LESS_EQUAL .)
+    FALSE           reduce using rule 64 (RelOp -> LESS_EQUAL .)
+
+
+state 109
+
+    (65) EqOp -> EQUAL .
+
+    IDENTIFIER      reduce using rule 65 (EqOp -> EQUAL .)
+    MINUS           reduce using rule 65 (EqOp -> EQUAL .)
+    NOT             reduce using rule 65 (EqOp -> EQUAL .)
+    LPAREN          reduce using rule 65 (EqOp -> EQUAL .)
+    CALLOUT         reduce using rule 65 (EqOp -> EQUAL .)
+    NUMBER          reduce using rule 65 (EqOp -> EQUAL .)
+    HEX_NUMBER      reduce using rule 65 (EqOp -> EQUAL .)
+    CHAR_LITERAL    reduce using rule 65 (EqOp -> EQUAL .)
+    TRUE            reduce using rule 65 (EqOp -> EQUAL .)
+    FALSE           reduce using rule 65 (EqOp -> EQUAL .)
+
+
+state 110
+
+    (66) EqOp -> NOT_EQUAL .
+
+    IDENTIFIER      reduce using rule 66 (EqOp -> NOT_EQUAL .)
+    MINUS           reduce using rule 66 (EqOp -> NOT_EQUAL .)
+    NOT             reduce using rule 66 (EqOp -> NOT_EQUAL .)
+    LPAREN          reduce using rule 66 (EqOp -> NOT_EQUAL .)
+    CALLOUT         reduce using rule 66 (EqOp -> NOT_EQUAL .)
+    NUMBER          reduce using rule 66 (EqOp -> NOT_EQUAL .)
+    HEX_NUMBER      reduce using rule 66 (EqOp -> NOT_EQUAL .)
+    CHAR_LITERAL    reduce using rule 66 (EqOp -> NOT_EQUAL .)
+    TRUE            reduce using rule 66 (EqOp -> NOT_EQUAL .)
+    FALSE           reduce using rule 66 (EqOp -> NOT_EQUAL .)
+
+
+state 111
+
+    (67) CondOp -> LOGICAL_AND .
+
+    IDENTIFIER      reduce using rule 67 (CondOp -> LOGICAL_AND .)
+    MINUS           reduce using rule 67 (CondOp -> LOGICAL_AND .)
+    NOT             reduce using rule 67 (CondOp -> LOGICAL_AND .)
+    LPAREN          reduce using rule 67 (CondOp -> LOGICAL_AND .)
+    CALLOUT         reduce using rule 67 (CondOp -> LOGICAL_AND .)
+    NUMBER          reduce using rule 67 (CondOp -> LOGICAL_AND .)
+    HEX_NUMBER      reduce using rule 67 (CondOp -> LOGICAL_AND .)
+    CHAR_LITERAL    reduce using rule 67 (CondOp -> LOGICAL_AND .)
+    TRUE            reduce using rule 67 (CondOp -> LOGICAL_AND .)
+    FALSE           reduce using rule 67 (CondOp -> LOGICAL_AND .)
+
+
+state 112
+
+    (68) CondOp -> LOGICAL_OR .
+
+    IDENTIFIER      reduce using rule 68 (CondOp -> LOGICAL_OR .)
+    MINUS           reduce using rule 68 (CondOp -> LOGICAL_OR .)
+    NOT             reduce using rule 68 (CondOp -> LOGICAL_OR .)
+    LPAREN          reduce using rule 68 (CondOp -> LOGICAL_OR .)
+    CALLOUT         reduce using rule 68 (CondOp -> LOGICAL_OR .)
+    NUMBER          reduce using rule 68 (CondOp -> LOGICAL_OR .)
+    HEX_NUMBER      reduce using rule 68 (CondOp -> LOGICAL_OR .)
+    CHAR_LITERAL    reduce using rule 68 (CondOp -> LOGICAL_OR .)
+    TRUE            reduce using rule 68 (CondOp -> LOGICAL_OR .)
+    FALSE           reduce using rule 68 (CondOp -> LOGICAL_OR .)
+
+
+state 113
+
+    (42) Expression -> MINUS Expression .
+    (41) Expression -> Expression . BinOp Expression
+    (49) BinOp -> . ArithOp
+    (50) BinOp -> . RelOp
+    (51) BinOp -> . EqOp
+    (52) BinOp -> . CondOp
+    (53) ArithOp -> . PLUS
+    (54) ArithOp -> . MINUS
+    (55) ArithOp -> . MULTIPLY
+    (56) ArithOp -> . DIVIDE
+    (57) ArithOp -> . MODULO
+    (58) ArithOp -> . SHIFT_L
+    (59) ArithOp -> . SHIFT_R
+    (60) ArithOp -> . LSHIFT_R
+    (61) RelOp -> . GREATER
+    (62) RelOp -> . LESS
+    (63) RelOp -> . GREATER_EQUAL
+    (64) RelOp -> . LESS_EQUAL
+    (65) EqOp -> . EQUAL
+    (66) EqOp -> . NOT_EQUAL
+    (67) CondOp -> . LOGICAL_AND
+    (68) CondOp -> . LOGICAL_OR
+
+    SEMICOLON       reduce using rule 42 (Expression -> MINUS Expression .)
+    RPAREN          reduce using rule 42 (Expression -> MINUS Expression .)
+    RBRACKET        reduce using rule 42 (Expression -> MINUS Expression .)
+    COMMA           reduce using rule 42 (Expression -> MINUS Expression .)
+    PLUS            reduce using rule 42 (Expression -> MINUS Expression .)
+    MINUS           reduce using rule 42 (Expression -> MINUS Expression .)
+    MODULO          reduce using rule 42 (Expression -> MINUS Expression .)
+    SHIFT_L         reduce using rule 42 (Expression -> MINUS Expression .)
+    SHIFT_R         reduce using rule 42 (Expression -> MINUS Expression .)
+    LSHIFT_R        reduce using rule 42 (Expression -> MINUS Expression .)
+    GREATER         reduce using rule 42 (Expression -> MINUS Expression .)
+    LESS            reduce using rule 42 (Expression -> MINUS Expression .)
+    GREATER_EQUAL   reduce using rule 42 (Expression -> MINUS Expression .)
+    LESS_EQUAL      reduce using rule 42 (Expression -> MINUS Expression .)
+    EQUAL           reduce using rule 42 (Expression -> MINUS Expression .)
+    NOT_EQUAL       reduce using rule 42 (Expression -> MINUS Expression .)
+    LOGICAL_AND     reduce using rule 42 (Expression -> MINUS Expression .)
+    LOGICAL_OR      reduce using rule 42 (Expression -> MINUS Expression .)
+    MULTIPLY        shift and go to state 99
+    DIVIDE          shift and go to state 100
+
+  ! MULTIPLY        [ reduce using rule 42 (Expression -> MINUS Expression .) ]
+  ! DIVIDE          [ reduce using rule 42 (Expression -> MINUS Expression .) ]
+  ! PLUS            [ shift and go to state 97 ]
+  ! MINUS           [ shift and go to state 98 ]
+  ! MODULO          [ shift and go to state 101 ]
+  ! SHIFT_L         [ shift and go to state 102 ]
+  ! SHIFT_R         [ shift and go to state 103 ]
+  ! LSHIFT_R        [ shift and go to state 104 ]
+  ! GREATER         [ shift and go to state 105 ]
+  ! LESS            [ shift and go to state 106 ]
+  ! GREATER_EQUAL   [ shift and go to state 107 ]
+  ! LESS_EQUAL      [ shift and go to state 108 ]
+  ! EQUAL           [ shift and go to state 109 ]
+  ! NOT_EQUAL       [ shift and go to state 110 ]
+  ! LOGICAL_AND     [ shift and go to state 111 ]
+  ! LOGICAL_OR      [ shift and go to state 112 ]
+
+    BinOp                          shift and go to state 92
+    ArithOp                        shift and go to state 93
+    RelOp                          shift and go to state 94
+    EqOp                           shift and go to state 95
+    CondOp                         shift and go to state 96
+
+state 114
+
+    (43) Expression -> NOT Expression .
+    (41) Expression -> Expression . BinOp Expression
+    (49) BinOp -> . ArithOp
+    (50) BinOp -> . RelOp
+    (51) BinOp -> . EqOp
+    (52) BinOp -> . CondOp
+    (53) ArithOp -> . PLUS
+    (54) ArithOp -> . MINUS
+    (55) ArithOp -> . MULTIPLY
+    (56) ArithOp -> . DIVIDE
+    (57) ArithOp -> . MODULO
+    (58) ArithOp -> . SHIFT_L
+    (59) ArithOp -> . SHIFT_R
+    (60) ArithOp -> . LSHIFT_R
+    (61) RelOp -> . GREATER
+    (62) RelOp -> . LESS
+    (63) RelOp -> . GREATER_EQUAL
+    (64) RelOp -> . LESS_EQUAL
+    (65) EqOp -> . EQUAL
+    (66) EqOp -> . NOT_EQUAL
+    (67) CondOp -> . LOGICAL_AND
+    (68) CondOp -> . LOGICAL_OR
+
+    SEMICOLON       reduce using rule 43 (Expression -> NOT Expression .)
+    RPAREN          reduce using rule 43 (Expression -> NOT Expression .)
+    RBRACKET        reduce using rule 43 (Expression -> NOT Expression .)
+    COMMA           reduce using rule 43 (Expression -> NOT Expression .)
+    PLUS            reduce using rule 43 (Expression -> NOT Expression .)
+    MINUS           reduce using rule 43 (Expression -> NOT Expression .)
+    MULTIPLY        reduce using rule 43 (Expression -> NOT Expression .)
+    DIVIDE          reduce using rule 43 (Expression -> NOT Expression .)
+    MODULO          reduce using rule 43 (Expression -> NOT Expression .)
+    SHIFT_L         reduce using rule 43 (Expression -> NOT Expression .)
+    SHIFT_R         reduce using rule 43 (Expression -> NOT Expression .)
+    LSHIFT_R        reduce using rule 43 (Expression -> NOT Expression .)
+    GREATER         reduce using rule 43 (Expression -> NOT Expression .)
+    LESS            reduce using rule 43 (Expression -> NOT Expression .)
+    GREATER_EQUAL   reduce using rule 43 (Expression -> NOT Expression .)
+    LESS_EQUAL      reduce using rule 43 (Expression -> NOT Expression .)
+    EQUAL           reduce using rule 43 (Expression -> NOT Expression .)
+    NOT_EQUAL       reduce using rule 43 (Expression -> NOT Expression .)
+    LOGICAL_AND     reduce using rule 43 (Expression -> NOT Expression .)
+    LOGICAL_OR      reduce using rule 43 (Expression -> NOT Expression .)
+
+  ! PLUS            [ shift and go to state 97 ]
+  ! MINUS           [ shift and go to state 98 ]
+  ! MULTIPLY        [ shift and go to state 99 ]
+  ! DIVIDE          [ shift and go to state 100 ]
+  ! MODULO          [ shift and go to state 101 ]
+  ! SHIFT_L         [ shift and go to state 102 ]
+  ! SHIFT_R         [ shift and go to state 103 ]
+  ! LSHIFT_R        [ shift and go to state 104 ]
+  ! GREATER         [ shift and go to state 105 ]
+  ! LESS            [ shift and go to state 106 ]
+  ! GREATER_EQUAL   [ shift and go to state 107 ]
+  ! LESS_EQUAL      [ shift and go to state 108 ]
+  ! EQUAL           [ shift and go to state 109 ]
+  ! NOT_EQUAL       [ shift and go to state 110 ]
+  ! LOGICAL_AND     [ shift and go to state 111 ]
+  ! LOGICAL_OR      [ shift and go to state 112 ]
+
+    BinOp                          shift and go to state 92
+    ArithOp                        shift and go to state 93
+    RelOp                          shift and go to state 94
+    EqOp                           shift and go to state 95
+    CondOp                         shift and go to state 96
+
+state 115
+
+    (44) Expression -> LPAREN Expression . RPAREN
+    (41) Expression -> Expression . BinOp Expression
+    (49) BinOp -> . ArithOp
+    (50) BinOp -> . RelOp
+    (51) BinOp -> . EqOp
+    (52) BinOp -> . CondOp
+    (53) ArithOp -> . PLUS
+    (54) ArithOp -> . MINUS
+    (55) ArithOp -> . MULTIPLY
+    (56) ArithOp -> . DIVIDE
+    (57) ArithOp -> . MODULO
+    (58) ArithOp -> . SHIFT_L
+    (59) ArithOp -> . SHIFT_R
+    (60) ArithOp -> . LSHIFT_R
+    (61) RelOp -> . GREATER
+    (62) RelOp -> . LESS
+    (63) RelOp -> . GREATER_EQUAL
+    (64) RelOp -> . LESS_EQUAL
+    (65) EqOp -> . EQUAL
+    (66) EqOp -> . NOT_EQUAL
+    (67) CondOp -> . LOGICAL_AND
+    (68) CondOp -> . LOGICAL_OR
+
+    RPAREN          shift and go to state 126
+    PLUS            shift and go to state 97
+    MINUS           shift and go to state 98
+    MULTIPLY        shift and go to state 99
+    DIVIDE          shift and go to state 100
+    MODULO          shift and go to state 101
+    SHIFT_L         shift and go to state 102
+    SHIFT_R         shift and go to state 103
+    LSHIFT_R        shift and go to state 104
+    GREATER         shift and go to state 105
+    LESS            shift and go to state 106
+    GREATER_EQUAL   shift and go to state 107
+    LESS_EQUAL      shift and go to state 108
+    EQUAL           shift and go to state 109
+    NOT_EQUAL       shift and go to state 110
+    LOGICAL_AND     shift and go to state 111
+    LOGICAL_OR      shift and go to state 112
+
+    BinOp                          shift and go to state 92
+    ArithOp                        shift and go to state 93
+    RelOp                          shift and go to state 94
+    EqOp                           shift and go to state 95
+    CondOp                         shift and go to state 96
+
+state 116
+
+    (35) Location -> IDENTIFIER LBRACKET Expression . RBRACKET
+    (41) Expression -> Expression . BinOp Expression
+    (49) BinOp -> . ArithOp
+    (50) BinOp -> . RelOp
+    (51) BinOp -> . EqOp
+    (52) BinOp -> . CondOp
+    (53) ArithOp -> . PLUS
+    (54) ArithOp -> . MINUS
+    (55) ArithOp -> . MULTIPLY
+    (56) ArithOp -> . DIVIDE
+    (57) ArithOp -> . MODULO
+    (58) ArithOp -> . SHIFT_L
+    (59) ArithOp -> . SHIFT_R
+    (60) ArithOp -> . LSHIFT_R
+    (61) RelOp -> . GREATER
+    (62) RelOp -> . LESS
+    (63) RelOp -> . GREATER_EQUAL
+    (64) RelOp -> . LESS_EQUAL
+    (65) EqOp -> . EQUAL
+    (66) EqOp -> . NOT_EQUAL
+    (67) CondOp -> . LOGICAL_AND
+    (68) CondOp -> . LOGICAL_OR
+
+    RBRACKET        shift and go to state 127
+    PLUS            shift and go to state 97
+    MINUS           shift and go to state 98
+    MULTIPLY        shift and go to state 99
+    DIVIDE          shift and go to state 100
+    MODULO          shift and go to state 101
+    SHIFT_L         shift and go to state 102
+    SHIFT_R         shift and go to state 103
+    LSHIFT_R        shift and go to state 104
+    GREATER         shift and go to state 105
+    LESS            shift and go to state 106
+    GREATER_EQUAL   shift and go to state 107
+    LESS_EQUAL      shift and go to state 108
+    EQUAL           shift and go to state 109
+    NOT_EQUAL       shift and go to state 110
+    LOGICAL_AND     shift and go to state 111
+    LOGICAL_OR      shift and go to state 112
+
+    BinOp                          shift and go to state 92
+    ArithOp                        shift and go to state 93
+    RelOp                          shift and go to state 94
+    EqOp                           shift and go to state 95
+    CondOp                         shift and go to state 96
+
+state 117
+
+    (30) MethodCall -> IDENTIFIER LPAREN RPAREN .
+
+    SEMICOLON       reduce using rule 30 (MethodCall -> IDENTIFIER LPAREN RPAREN .)
+    RPAREN          reduce using rule 30 (MethodCall -> IDENTIFIER LPAREN RPAREN .)
+    RBRACKET        reduce using rule 30 (MethodCall -> IDENTIFIER LPAREN RPAREN .)
+    COMMA           reduce using rule 30 (MethodCall -> IDENTIFIER LPAREN RPAREN .)
+    PLUS            reduce using rule 30 (MethodCall -> IDENTIFIER LPAREN RPAREN .)
+    MINUS           reduce using rule 30 (MethodCall -> IDENTIFIER LPAREN RPAREN .)
+    MULTIPLY        reduce using rule 30 (MethodCall -> IDENTIFIER LPAREN RPAREN .)
+    DIVIDE          reduce using rule 30 (MethodCall -> IDENTIFIER LPAREN RPAREN .)
+    MODULO          reduce using rule 30 (MethodCall -> IDENTIFIER LPAREN RPAREN .)
+    SHIFT_L         reduce using rule 30 (MethodCall -> IDENTIFIER LPAREN RPAREN .)
+    SHIFT_R         reduce using rule 30 (MethodCall -> IDENTIFIER LPAREN RPAREN .)
+    LSHIFT_R        reduce using rule 30 (MethodCall -> IDENTIFIER LPAREN RPAREN .)
+    GREATER         reduce using rule 30 (MethodCall -> IDENTIFIER LPAREN RPAREN .)
+    LESS            reduce using rule 30 (MethodCall -> IDENTIFIER LPAREN RPAREN .)
+    GREATER_EQUAL   reduce using rule 30 (MethodCall -> IDENTIFIER LPAREN RPAREN .)
+    LESS_EQUAL      reduce using rule 30 (MethodCall -> IDENTIFIER LPAREN RPAREN .)
+    EQUAL           reduce using rule 30 (MethodCall -> IDENTIFIER LPAREN RPAREN .)
+    NOT_EQUAL       reduce using rule 30 (MethodCall -> IDENTIFIER LPAREN RPAREN .)
+    LOGICAL_AND     reduce using rule 30 (MethodCall -> IDENTIFIER LPAREN RPAREN .)
+    LOGICAL_OR      reduce using rule 30 (MethodCall -> IDENTIFIER LPAREN RPAREN .)
+
+
+state 118
+
+    (31) MethodCall -> IDENTIFIER LPAREN ExpressionList . RPAREN
+
+    RPAREN          shift and go to state 128
+
+
+state 119
+
+    (36) ExpressionList -> Expression .
+    (37) ExpressionList -> Expression . COMMA ExpressionList
+    (41) Expression -> Expression . BinOp Expression
+    (49) BinOp -> . ArithOp
+    (50) BinOp -> . RelOp
+    (51) BinOp -> . EqOp
+    (52) BinOp -> . CondOp
+    (53) ArithOp -> . PLUS
+    (54) ArithOp -> . MINUS
+    (55) ArithOp -> . MULTIPLY
+    (56) ArithOp -> . DIVIDE
+    (57) ArithOp -> . MODULO
+    (58) ArithOp -> . SHIFT_L
+    (59) ArithOp -> . SHIFT_R
+    (60) ArithOp -> . LSHIFT_R
+    (61) RelOp -> . GREATER
+    (62) RelOp -> . LESS
+    (63) RelOp -> . GREATER_EQUAL
+    (64) RelOp -> . LESS_EQUAL
+    (65) EqOp -> . EQUAL
+    (66) EqOp -> . NOT_EQUAL
+    (67) CondOp -> . LOGICAL_AND
+    (68) CondOp -> . LOGICAL_OR
+
+    RPAREN          reduce using rule 36 (ExpressionList -> Expression .)
+    COMMA           shift and go to state 129
+    PLUS            shift and go to state 97
+    MINUS           shift and go to state 98
+    MULTIPLY        shift and go to state 99
+    DIVIDE          shift and go to state 100
+    MODULO          shift and go to state 101
+    SHIFT_L         shift and go to state 102
+    SHIFT_R         shift and go to state 103
+    LSHIFT_R        shift and go to state 104
+    GREATER         shift and go to state 105
+    LESS            shift and go to state 106
+    GREATER_EQUAL   shift and go to state 107
+    LESS_EQUAL      shift and go to state 108
+    EQUAL           shift and go to state 109
+    NOT_EQUAL       shift and go to state 110
+    LOGICAL_AND     shift and go to state 111
+    LOGICAL_OR      shift and go to state 112
+
+    BinOp                          shift and go to state 92
+    ArithOp                        shift and go to state 93
+    RelOp                          shift and go to state 94
+    EqOp                           shift and go to state 95
+    CondOp                         shift and go to state 96
+
+state 120
+
+    (32) MethodCall -> CALLOUT LPAREN StringLiteral . RPAREN
+    (33) MethodCall -> CALLOUT LPAREN StringLiteral . COMMA CalloutArgList RPAREN
+
+    RPAREN          shift and go to state 130
+    COMMA           shift and go to state 131
+
+
+state 121
+
+    (79) StringLiteral -> STRING_LITERAL .
+
+    RPAREN          reduce using rule 79 (StringLiteral -> STRING_LITERAL .)
+    COMMA           reduce using rule 79 (StringLiteral -> STRING_LITERAL .)
+
+
+state 122
+
+    (20) Statement -> Location ASSIGN Expression SEMICOLON .
+
+    IF              reduce using rule 20 (Statement -> Location ASSIGN Expression SEMICOLON .)
+    WHILE           reduce using rule 20 (Statement -> Location ASSIGN Expression SEMICOLON .)
+    RETURN          reduce using rule 20 (Statement -> Location ASSIGN Expression SEMICOLON .)
+    BREAK           reduce using rule 20 (Statement -> Location ASSIGN Expression SEMICOLON .)
+    CONTINUE        reduce using rule 20 (Statement -> Location ASSIGN Expression SEMICOLON .)
+    LBRACE          reduce using rule 20 (Statement -> Location ASSIGN Expression SEMICOLON .)
+    IDENTIFIER      reduce using rule 20 (Statement -> Location ASSIGN Expression SEMICOLON .)
+    CALLOUT         reduce using rule 20 (Statement -> Location ASSIGN Expression SEMICOLON .)
+    RBRACE          reduce using rule 20 (Statement -> Location ASSIGN Expression SEMICOLON .)
+
+
+state 123
+
+    (22) Statement -> IF LPAREN Expression RPAREN . Block
+    (23) Statement -> IF LPAREN Expression RPAREN . Block ELSE Block
+    (12) Block -> . LBRACE VarDecls Statements RBRACE
+
+    LBRACE          shift and go to state 38
+
+    Block                          shift and go to state 132
+
+state 124
+
+    (24) Statement -> WHILE LPAREN Expression RPAREN . Block
+    (12) Block -> . LBRACE VarDecls Statements RBRACE
+
+    LBRACE          shift and go to state 38
+
+    Block                          shift and go to state 133
+
+state 125
+
+    (41) Expression -> Expression BinOp Expression .
+    (41) Expression -> Expression . BinOp Expression
+    (49) BinOp -> . ArithOp
+    (50) BinOp -> . RelOp
+    (51) BinOp -> . EqOp
+    (52) BinOp -> . CondOp
+    (53) ArithOp -> . PLUS
+    (54) ArithOp -> . MINUS
+    (55) ArithOp -> . MULTIPLY
+    (56) ArithOp -> . DIVIDE
+    (57) ArithOp -> . MODULO
+    (58) ArithOp -> . SHIFT_L
+    (59) ArithOp -> . SHIFT_R
+    (60) ArithOp -> . LSHIFT_R
+    (61) RelOp -> . GREATER
+    (62) RelOp -> . LESS
+    (63) RelOp -> . GREATER_EQUAL
+    (64) RelOp -> . LESS_EQUAL
+    (65) EqOp -> . EQUAL
+    (66) EqOp -> . NOT_EQUAL
+    (67) CondOp -> . LOGICAL_AND
+    (68) CondOp -> . LOGICAL_OR
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for MULTIPLY resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for MODULO resolved as shift
+  ! shift/reduce conflict for SHIFT_L resolved as shift
+  ! shift/reduce conflict for SHIFT_R resolved as shift
+  ! shift/reduce conflict for LSHIFT_R resolved as shift
+  ! shift/reduce conflict for GREATER resolved as shift
+  ! shift/reduce conflict for LESS resolved as shift
+  ! shift/reduce conflict for GREATER_EQUAL resolved as shift
+  ! shift/reduce conflict for LESS_EQUAL resolved as shift
+  ! shift/reduce conflict for EQUAL resolved as shift
+  ! shift/reduce conflict for NOT_EQUAL resolved as shift
+  ! shift/reduce conflict for LOGICAL_AND resolved as shift
+  ! shift/reduce conflict for LOGICAL_OR resolved as shift
+    SEMICOLON       reduce using rule 41 (Expression -> Expression BinOp Expression .)
+    RPAREN          reduce using rule 41 (Expression -> Expression BinOp Expression .)
+    RBRACKET        reduce using rule 41 (Expression -> Expression BinOp Expression .)
+    COMMA           reduce using rule 41 (Expression -> Expression BinOp Expression .)
+    PLUS            shift and go to state 97
+    MINUS           shift and go to state 98
+    MULTIPLY        shift and go to state 99
+    DIVIDE          shift and go to state 100
+    MODULO          shift and go to state 101
+    SHIFT_L         shift and go to state 102
+    SHIFT_R         shift and go to state 103
+    LSHIFT_R        shift and go to state 104
+    GREATER         shift and go to state 105
+    LESS            shift and go to state 106
+    GREATER_EQUAL   shift and go to state 107
+    LESS_EQUAL      shift and go to state 108
+    EQUAL           shift and go to state 109
+    NOT_EQUAL       shift and go to state 110
+    LOGICAL_AND     shift and go to state 111
+    LOGICAL_OR      shift and go to state 112
+
+  ! PLUS            [ reduce using rule 41 (Expression -> Expression BinOp Expression .) ]
+  ! MINUS           [ reduce using rule 41 (Expression -> Expression BinOp Expression .) ]
+  ! MULTIPLY        [ reduce using rule 41 (Expression -> Expression BinOp Expression .) ]
+  ! DIVIDE          [ reduce using rule 41 (Expression -> Expression BinOp Expression .) ]
+  ! MODULO          [ reduce using rule 41 (Expression -> Expression BinOp Expression .) ]
+  ! SHIFT_L         [ reduce using rule 41 (Expression -> Expression BinOp Expression .) ]
+  ! SHIFT_R         [ reduce using rule 41 (Expression -> Expression BinOp Expression .) ]
+  ! LSHIFT_R        [ reduce using rule 41 (Expression -> Expression BinOp Expression .) ]
+  ! GREATER         [ reduce using rule 41 (Expression -> Expression BinOp Expression .) ]
+  ! LESS            [ reduce using rule 41 (Expression -> Expression BinOp Expression .) ]
+  ! GREATER_EQUAL   [ reduce using rule 41 (Expression -> Expression BinOp Expression .) ]
+  ! LESS_EQUAL      [ reduce using rule 41 (Expression -> Expression BinOp Expression .) ]
+  ! EQUAL           [ reduce using rule 41 (Expression -> Expression BinOp Expression .) ]
+  ! NOT_EQUAL       [ reduce using rule 41 (Expression -> Expression BinOp Expression .) ]
+  ! LOGICAL_AND     [ reduce using rule 41 (Expression -> Expression BinOp Expression .) ]
+  ! LOGICAL_OR      [ reduce using rule 41 (Expression -> Expression BinOp Expression .) ]
+
+    BinOp                          shift and go to state 92
+    ArithOp                        shift and go to state 93
+    RelOp                          shift and go to state 94
+    EqOp                           shift and go to state 95
+    CondOp                         shift and go to state 96
+
+state 126
+
+    (44) Expression -> LPAREN Expression RPAREN .
+
+    SEMICOLON       reduce using rule 44 (Expression -> LPAREN Expression RPAREN .)
+    RPAREN          reduce using rule 44 (Expression -> LPAREN Expression RPAREN .)
+    RBRACKET        reduce using rule 44 (Expression -> LPAREN Expression RPAREN .)
+    COMMA           reduce using rule 44 (Expression -> LPAREN Expression RPAREN .)
+    PLUS            reduce using rule 44 (Expression -> LPAREN Expression RPAREN .)
+    MINUS           reduce using rule 44 (Expression -> LPAREN Expression RPAREN .)
+    MULTIPLY        reduce using rule 44 (Expression -> LPAREN Expression RPAREN .)
+    DIVIDE          reduce using rule 44 (Expression -> LPAREN Expression RPAREN .)
+    MODULO          reduce using rule 44 (Expression -> LPAREN Expression RPAREN .)
+    SHIFT_L         reduce using rule 44 (Expression -> LPAREN Expression RPAREN .)
+    SHIFT_R         reduce using rule 44 (Expression -> LPAREN Expression RPAREN .)
+    LSHIFT_R        reduce using rule 44 (Expression -> LPAREN Expression RPAREN .)
+    GREATER         reduce using rule 44 (Expression -> LPAREN Expression RPAREN .)
+    LESS            reduce using rule 44 (Expression -> LPAREN Expression RPAREN .)
+    GREATER_EQUAL   reduce using rule 44 (Expression -> LPAREN Expression RPAREN .)
+    LESS_EQUAL      reduce using rule 44 (Expression -> LPAREN Expression RPAREN .)
+    EQUAL           reduce using rule 44 (Expression -> LPAREN Expression RPAREN .)
+    NOT_EQUAL       reduce using rule 44 (Expression -> LPAREN Expression RPAREN .)
+    LOGICAL_AND     reduce using rule 44 (Expression -> LPAREN Expression RPAREN .)
+    LOGICAL_OR      reduce using rule 44 (Expression -> LPAREN Expression RPAREN .)
+
+
+state 127
+
+    (35) Location -> IDENTIFIER LBRACKET Expression RBRACKET .
+
+    ASSIGN          reduce using rule 35 (Location -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    SEMICOLON       reduce using rule 35 (Location -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    RPAREN          reduce using rule 35 (Location -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    RBRACKET        reduce using rule 35 (Location -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    COMMA           reduce using rule 35 (Location -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    PLUS            reduce using rule 35 (Location -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    MINUS           reduce using rule 35 (Location -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    MULTIPLY        reduce using rule 35 (Location -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    DIVIDE          reduce using rule 35 (Location -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    MODULO          reduce using rule 35 (Location -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    SHIFT_L         reduce using rule 35 (Location -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    SHIFT_R         reduce using rule 35 (Location -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    LSHIFT_R        reduce using rule 35 (Location -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    GREATER         reduce using rule 35 (Location -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    LESS            reduce using rule 35 (Location -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    GREATER_EQUAL   reduce using rule 35 (Location -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    LESS_EQUAL      reduce using rule 35 (Location -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    EQUAL           reduce using rule 35 (Location -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    NOT_EQUAL       reduce using rule 35 (Location -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    LOGICAL_AND     reduce using rule 35 (Location -> IDENTIFIER LBRACKET Expression RBRACKET .)
+    LOGICAL_OR      reduce using rule 35 (Location -> IDENTIFIER LBRACKET Expression RBRACKET .)
+
+
+state 128
+
+    (31) MethodCall -> IDENTIFIER LPAREN ExpressionList RPAREN .
+
+    SEMICOLON       reduce using rule 31 (MethodCall -> IDENTIFIER LPAREN ExpressionList RPAREN .)
+    RPAREN          reduce using rule 31 (MethodCall -> IDENTIFIER LPAREN ExpressionList RPAREN .)
+    RBRACKET        reduce using rule 31 (MethodCall -> IDENTIFIER LPAREN ExpressionList RPAREN .)
+    COMMA           reduce using rule 31 (MethodCall -> IDENTIFIER LPAREN ExpressionList RPAREN .)
+    PLUS            reduce using rule 31 (MethodCall -> IDENTIFIER LPAREN ExpressionList RPAREN .)
+    MINUS           reduce using rule 31 (MethodCall -> IDENTIFIER LPAREN ExpressionList RPAREN .)
+    MULTIPLY        reduce using rule 31 (MethodCall -> IDENTIFIER LPAREN ExpressionList RPAREN .)
+    DIVIDE          reduce using rule 31 (MethodCall -> IDENTIFIER LPAREN ExpressionList RPAREN .)
+    MODULO          reduce using rule 31 (MethodCall -> IDENTIFIER LPAREN ExpressionList RPAREN .)
+    SHIFT_L         reduce using rule 31 (MethodCall -> IDENTIFIER LPAREN ExpressionList RPAREN .)
+    SHIFT_R         reduce using rule 31 (MethodCall -> IDENTIFIER LPAREN ExpressionList RPAREN .)
+    LSHIFT_R        reduce using rule 31 (MethodCall -> IDENTIFIER LPAREN ExpressionList RPAREN .)
+    GREATER         reduce using rule 31 (MethodCall -> IDENTIFIER LPAREN ExpressionList RPAREN .)
+    LESS            reduce using rule 31 (MethodCall -> IDENTIFIER LPAREN ExpressionList RPAREN .)
+    GREATER_EQUAL   reduce using rule 31 (MethodCall -> IDENTIFIER LPAREN ExpressionList RPAREN .)
+    LESS_EQUAL      reduce using rule 31 (MethodCall -> IDENTIFIER LPAREN ExpressionList RPAREN .)
+    EQUAL           reduce using rule 31 (MethodCall -> IDENTIFIER LPAREN ExpressionList RPAREN .)
+    NOT_EQUAL       reduce using rule 31 (MethodCall -> IDENTIFIER LPAREN ExpressionList RPAREN .)
+    LOGICAL_AND     reduce using rule 31 (MethodCall -> IDENTIFIER LPAREN ExpressionList RPAREN .)
+    LOGICAL_OR      reduce using rule 31 (MethodCall -> IDENTIFIER LPAREN ExpressionList RPAREN .)
+
+
+state 129
+
+    (37) ExpressionList -> Expression COMMA . ExpressionList
+    (36) ExpressionList -> . Expression
+    (37) ExpressionList -> . Expression COMMA ExpressionList
+    (38) Expression -> . Location
+    (39) Expression -> . MethodCall
+    (40) Expression -> . Literal
+    (41) Expression -> . Expression BinOp Expression
+    (42) Expression -> . MINUS Expression
+    (43) Expression -> . NOT Expression
+    (44) Expression -> . LPAREN Expression RPAREN
+    (34) Location -> . IDENTIFIER
+    (35) Location -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (30) MethodCall -> . IDENTIFIER LPAREN RPAREN
+    (31) MethodCall -> . IDENTIFIER LPAREN ExpressionList RPAREN
+    (32) MethodCall -> . CALLOUT LPAREN StringLiteral RPAREN
+    (33) MethodCall -> . CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN
+    (69) Literal -> . IntLiteral
+    (70) Literal -> . CharLiteral
+    (71) Literal -> . BoolLiteral
+    (72) IntLiteral -> . DecimalLiteral
+    (73) IntLiteral -> . HexLiteral
+    (78) CharLiteral -> . CHAR_LITERAL
+    (76) BoolLiteral -> . TRUE
+    (77) BoolLiteral -> . FALSE
+    (74) DecimalLiteral -> . NUMBER
+    (75) HexLiteral -> . HEX_NUMBER
+
+    MINUS           shift and go to state 73
+    NOT             shift and go to state 74
+    LPAREN          shift and go to state 75
+    IDENTIFIER      shift and go to state 58
+    CALLOUT         shift and go to state 59
+    CHAR_LITERAL    shift and go to state 79
+    TRUE            shift and go to state 80
+    FALSE           shift and go to state 81
+    NUMBER          shift and go to state 29
+    HEX_NUMBER      shift and go to state 30
+
+    Expression                     shift and go to state 119
+    ExpressionList                 shift and go to state 134
+    Location                       shift and go to state 70
+    MethodCall                     shift and go to state 71
+    Literal                        shift and go to state 72
+    IntLiteral                     shift and go to state 76
+    CharLiteral                    shift and go to state 77
+    BoolLiteral                    shift and go to state 78
+    DecimalLiteral                 shift and go to state 27
+    HexLiteral                     shift and go to state 28
+
+state 130
+
+    (32) MethodCall -> CALLOUT LPAREN StringLiteral RPAREN .
+
+    SEMICOLON       reduce using rule 32 (MethodCall -> CALLOUT LPAREN StringLiteral RPAREN .)
+    RPAREN          reduce using rule 32 (MethodCall -> CALLOUT LPAREN StringLiteral RPAREN .)
+    RBRACKET        reduce using rule 32 (MethodCall -> CALLOUT LPAREN StringLiteral RPAREN .)
+    COMMA           reduce using rule 32 (MethodCall -> CALLOUT LPAREN StringLiteral RPAREN .)
+    PLUS            reduce using rule 32 (MethodCall -> CALLOUT LPAREN StringLiteral RPAREN .)
+    MINUS           reduce using rule 32 (MethodCall -> CALLOUT LPAREN StringLiteral RPAREN .)
+    MULTIPLY        reduce using rule 32 (MethodCall -> CALLOUT LPAREN StringLiteral RPAREN .)
+    DIVIDE          reduce using rule 32 (MethodCall -> CALLOUT LPAREN StringLiteral RPAREN .)
+    MODULO          reduce using rule 32 (MethodCall -> CALLOUT LPAREN StringLiteral RPAREN .)
+    SHIFT_L         reduce using rule 32 (MethodCall -> CALLOUT LPAREN StringLiteral RPAREN .)
+    SHIFT_R         reduce using rule 32 (MethodCall -> CALLOUT LPAREN StringLiteral RPAREN .)
+    LSHIFT_R        reduce using rule 32 (MethodCall -> CALLOUT LPAREN StringLiteral RPAREN .)
+    GREATER         reduce using rule 32 (MethodCall -> CALLOUT LPAREN StringLiteral RPAREN .)
+    LESS            reduce using rule 32 (MethodCall -> CALLOUT LPAREN StringLiteral RPAREN .)
+    GREATER_EQUAL   reduce using rule 32 (MethodCall -> CALLOUT LPAREN StringLiteral RPAREN .)
+    LESS_EQUAL      reduce using rule 32 (MethodCall -> CALLOUT LPAREN StringLiteral RPAREN .)
+    EQUAL           reduce using rule 32 (MethodCall -> CALLOUT LPAREN StringLiteral RPAREN .)
+    NOT_EQUAL       reduce using rule 32 (MethodCall -> CALLOUT LPAREN StringLiteral RPAREN .)
+    LOGICAL_AND     reduce using rule 32 (MethodCall -> CALLOUT LPAREN StringLiteral RPAREN .)
+    LOGICAL_OR      reduce using rule 32 (MethodCall -> CALLOUT LPAREN StringLiteral RPAREN .)
+
+
+state 131
+
+    (33) MethodCall -> CALLOUT LPAREN StringLiteral COMMA . CalloutArgList RPAREN
+    (45) CalloutArgList -> . CalloutArg
+    (46) CalloutArgList -> . CalloutArg COMMA CalloutArgList
+    (47) CalloutArg -> . Expression
+    (48) CalloutArg -> . StringLiteral
+    (38) Expression -> . Location
+    (39) Expression -> . MethodCall
+    (40) Expression -> . Literal
+    (41) Expression -> . Expression BinOp Expression
+    (42) Expression -> . MINUS Expression
+    (43) Expression -> . NOT Expression
+    (44) Expression -> . LPAREN Expression RPAREN
+    (79) StringLiteral -> . STRING_LITERAL
+    (34) Location -> . IDENTIFIER
+    (35) Location -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (30) MethodCall -> . IDENTIFIER LPAREN RPAREN
+    (31) MethodCall -> . IDENTIFIER LPAREN ExpressionList RPAREN
+    (32) MethodCall -> . CALLOUT LPAREN StringLiteral RPAREN
+    (33) MethodCall -> . CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN
+    (69) Literal -> . IntLiteral
+    (70) Literal -> . CharLiteral
+    (71) Literal -> . BoolLiteral
+    (72) IntLiteral -> . DecimalLiteral
+    (73) IntLiteral -> . HexLiteral
+    (78) CharLiteral -> . CHAR_LITERAL
+    (76) BoolLiteral -> . TRUE
+    (77) BoolLiteral -> . FALSE
+    (74) DecimalLiteral -> . NUMBER
+    (75) HexLiteral -> . HEX_NUMBER
+
+    MINUS           shift and go to state 73
+    NOT             shift and go to state 74
+    LPAREN          shift and go to state 75
+    STRING_LITERAL  shift and go to state 121
+    IDENTIFIER      shift and go to state 58
+    CALLOUT         shift and go to state 59
+    CHAR_LITERAL    shift and go to state 79
+    TRUE            shift and go to state 80
+    FALSE           shift and go to state 81
+    NUMBER          shift and go to state 29
+    HEX_NUMBER      shift and go to state 30
+
+    StringLiteral                  shift and go to state 135
+    CalloutArgList                 shift and go to state 136
+    CalloutArg                     shift and go to state 137
+    Expression                     shift and go to state 138
+    Location                       shift and go to state 70
+    MethodCall                     shift and go to state 71
+    Literal                        shift and go to state 72
+    IntLiteral                     shift and go to state 76
+    CharLiteral                    shift and go to state 77
+    BoolLiteral                    shift and go to state 78
+    DecimalLiteral                 shift and go to state 27
+    HexLiteral                     shift and go to state 28
+
+state 132
+
+    (22) Statement -> IF LPAREN Expression RPAREN Block .
+    (23) Statement -> IF LPAREN Expression RPAREN Block . ELSE Block
+
+    IF              reduce using rule 22 (Statement -> IF LPAREN Expression RPAREN Block .)
+    WHILE           reduce using rule 22 (Statement -> IF LPAREN Expression RPAREN Block .)
+    RETURN          reduce using rule 22 (Statement -> IF LPAREN Expression RPAREN Block .)
+    BREAK           reduce using rule 22 (Statement -> IF LPAREN Expression RPAREN Block .)
+    CONTINUE        reduce using rule 22 (Statement -> IF LPAREN Expression RPAREN Block .)
+    LBRACE          reduce using rule 22 (Statement -> IF LPAREN Expression RPAREN Block .)
+    IDENTIFIER      reduce using rule 22 (Statement -> IF LPAREN Expression RPAREN Block .)
+    CALLOUT         reduce using rule 22 (Statement -> IF LPAREN Expression RPAREN Block .)
+    RBRACE          reduce using rule 22 (Statement -> IF LPAREN Expression RPAREN Block .)
+    ELSE            shift and go to state 139
+
+
+state 133
+
+    (24) Statement -> WHILE LPAREN Expression RPAREN Block .
+
+    IF              reduce using rule 24 (Statement -> WHILE LPAREN Expression RPAREN Block .)
+    WHILE           reduce using rule 24 (Statement -> WHILE LPAREN Expression RPAREN Block .)
+    RETURN          reduce using rule 24 (Statement -> WHILE LPAREN Expression RPAREN Block .)
+    BREAK           reduce using rule 24 (Statement -> WHILE LPAREN Expression RPAREN Block .)
+    CONTINUE        reduce using rule 24 (Statement -> WHILE LPAREN Expression RPAREN Block .)
+    LBRACE          reduce using rule 24 (Statement -> WHILE LPAREN Expression RPAREN Block .)
+    IDENTIFIER      reduce using rule 24 (Statement -> WHILE LPAREN Expression RPAREN Block .)
+    CALLOUT         reduce using rule 24 (Statement -> WHILE LPAREN Expression RPAREN Block .)
+    RBRACE          reduce using rule 24 (Statement -> WHILE LPAREN Expression RPAREN Block .)
+
+
+state 134
+
+    (37) ExpressionList -> Expression COMMA ExpressionList .
+
+    RPAREN          reduce using rule 37 (ExpressionList -> Expression COMMA ExpressionList .)
+
+
+state 135
+
+    (48) CalloutArg -> StringLiteral .
+
+    RPAREN          reduce using rule 48 (CalloutArg -> StringLiteral .)
+    COMMA           reduce using rule 48 (CalloutArg -> StringLiteral .)
+
+
+state 136
+
+    (33) MethodCall -> CALLOUT LPAREN StringLiteral COMMA CalloutArgList . RPAREN
+
+    RPAREN          shift and go to state 140
+
+
+state 137
+
+    (45) CalloutArgList -> CalloutArg .
+    (46) CalloutArgList -> CalloutArg . COMMA CalloutArgList
+
+    RPAREN          reduce using rule 45 (CalloutArgList -> CalloutArg .)
+    COMMA           shift and go to state 141
+
+
+state 138
+
+    (47) CalloutArg -> Expression .
+    (41) Expression -> Expression . BinOp Expression
+    (49) BinOp -> . ArithOp
+    (50) BinOp -> . RelOp
+    (51) BinOp -> . EqOp
+    (52) BinOp -> . CondOp
+    (53) ArithOp -> . PLUS
+    (54) ArithOp -> . MINUS
+    (55) ArithOp -> . MULTIPLY
+    (56) ArithOp -> . DIVIDE
+    (57) ArithOp -> . MODULO
+    (58) ArithOp -> . SHIFT_L
+    (59) ArithOp -> . SHIFT_R
+    (60) ArithOp -> . LSHIFT_R
+    (61) RelOp -> . GREATER
+    (62) RelOp -> . LESS
+    (63) RelOp -> . GREATER_EQUAL
+    (64) RelOp -> . LESS_EQUAL
+    (65) EqOp -> . EQUAL
+    (66) EqOp -> . NOT_EQUAL
+    (67) CondOp -> . LOGICAL_AND
+    (68) CondOp -> . LOGICAL_OR
+
+    RPAREN          reduce using rule 47 (CalloutArg -> Expression .)
+    COMMA           reduce using rule 47 (CalloutArg -> Expression .)
+    PLUS            shift and go to state 97
+    MINUS           shift and go to state 98
+    MULTIPLY        shift and go to state 99
+    DIVIDE          shift and go to state 100
+    MODULO          shift and go to state 101
+    SHIFT_L         shift and go to state 102
+    SHIFT_R         shift and go to state 103
+    LSHIFT_R        shift and go to state 104
+    GREATER         shift and go to state 105
+    LESS            shift and go to state 106
+    GREATER_EQUAL   shift and go to state 107
+    LESS_EQUAL      shift and go to state 108
+    EQUAL           shift and go to state 109
+    NOT_EQUAL       shift and go to state 110
+    LOGICAL_AND     shift and go to state 111
+    LOGICAL_OR      shift and go to state 112
+
+    BinOp                          shift and go to state 92
+    ArithOp                        shift and go to state 93
+    RelOp                          shift and go to state 94
+    EqOp                           shift and go to state 95
+    CondOp                         shift and go to state 96
+
+state 139
+
+    (23) Statement -> IF LPAREN Expression RPAREN Block ELSE . Block
+    (12) Block -> . LBRACE VarDecls Statements RBRACE
+
+    LBRACE          shift and go to state 38
+
+    Block                          shift and go to state 142
+
+state 140
+
+    (33) MethodCall -> CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN .
+
+    SEMICOLON       reduce using rule 33 (MethodCall -> CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN .)
+    RPAREN          reduce using rule 33 (MethodCall -> CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN .)
+    RBRACKET        reduce using rule 33 (MethodCall -> CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN .)
+    COMMA           reduce using rule 33 (MethodCall -> CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN .)
+    PLUS            reduce using rule 33 (MethodCall -> CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN .)
+    MINUS           reduce using rule 33 (MethodCall -> CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN .)
+    MULTIPLY        reduce using rule 33 (MethodCall -> CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN .)
+    DIVIDE          reduce using rule 33 (MethodCall -> CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN .)
+    MODULO          reduce using rule 33 (MethodCall -> CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN .)
+    SHIFT_L         reduce using rule 33 (MethodCall -> CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN .)
+    SHIFT_R         reduce using rule 33 (MethodCall -> CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN .)
+    LSHIFT_R        reduce using rule 33 (MethodCall -> CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN .)
+    GREATER         reduce using rule 33 (MethodCall -> CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN .)
+    LESS            reduce using rule 33 (MethodCall -> CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN .)
+    GREATER_EQUAL   reduce using rule 33 (MethodCall -> CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN .)
+    LESS_EQUAL      reduce using rule 33 (MethodCall -> CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN .)
+    EQUAL           reduce using rule 33 (MethodCall -> CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN .)
+    NOT_EQUAL       reduce using rule 33 (MethodCall -> CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN .)
+    LOGICAL_AND     reduce using rule 33 (MethodCall -> CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN .)
+    LOGICAL_OR      reduce using rule 33 (MethodCall -> CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN .)
+
+
+state 141
+
+    (46) CalloutArgList -> CalloutArg COMMA . CalloutArgList
+    (45) CalloutArgList -> . CalloutArg
+    (46) CalloutArgList -> . CalloutArg COMMA CalloutArgList
+    (47) CalloutArg -> . Expression
+    (48) CalloutArg -> . StringLiteral
+    (38) Expression -> . Location
+    (39) Expression -> . MethodCall
+    (40) Expression -> . Literal
+    (41) Expression -> . Expression BinOp Expression
+    (42) Expression -> . MINUS Expression
+    (43) Expression -> . NOT Expression
+    (44) Expression -> . LPAREN Expression RPAREN
+    (79) StringLiteral -> . STRING_LITERAL
+    (34) Location -> . IDENTIFIER
+    (35) Location -> . IDENTIFIER LBRACKET Expression RBRACKET
+    (30) MethodCall -> . IDENTIFIER LPAREN RPAREN
+    (31) MethodCall -> . IDENTIFIER LPAREN ExpressionList RPAREN
+    (32) MethodCall -> . CALLOUT LPAREN StringLiteral RPAREN
+    (33) MethodCall -> . CALLOUT LPAREN StringLiteral COMMA CalloutArgList RPAREN
+    (69) Literal -> . IntLiteral
+    (70) Literal -> . CharLiteral
+    (71) Literal -> . BoolLiteral
+    (72) IntLiteral -> . DecimalLiteral
+    (73) IntLiteral -> . HexLiteral
+    (78) CharLiteral -> . CHAR_LITERAL
+    (76) BoolLiteral -> . TRUE
+    (77) BoolLiteral -> . FALSE
+    (74) DecimalLiteral -> . NUMBER
+    (75) HexLiteral -> . HEX_NUMBER
+
+    MINUS           shift and go to state 73
+    NOT             shift and go to state 74
+    LPAREN          shift and go to state 75
+    STRING_LITERAL  shift and go to state 121
+    IDENTIFIER      shift and go to state 58
+    CALLOUT         shift and go to state 59
+    CHAR_LITERAL    shift and go to state 79
+    TRUE            shift and go to state 80
+    FALSE           shift and go to state 81
+    NUMBER          shift and go to state 29
+    HEX_NUMBER      shift and go to state 30
+
+    CalloutArg                     shift and go to state 137
+    CalloutArgList                 shift and go to state 143
+    Expression                     shift and go to state 138
+    StringLiteral                  shift and go to state 135
+    Location                       shift and go to state 70
+    MethodCall                     shift and go to state 71
+    Literal                        shift and go to state 72
+    IntLiteral                     shift and go to state 76
+    CharLiteral                    shift and go to state 77
+    BoolLiteral                    shift and go to state 78
+    DecimalLiteral                 shift and go to state 27
+    HexLiteral                     shift and go to state 28
+
+state 142
+
+    (23) Statement -> IF LPAREN Expression RPAREN Block ELSE Block .
+
+    IF              reduce using rule 23 (Statement -> IF LPAREN Expression RPAREN Block ELSE Block .)
+    WHILE           reduce using rule 23 (Statement -> IF LPAREN Expression RPAREN Block ELSE Block .)
+    RETURN          reduce using rule 23 (Statement -> IF LPAREN Expression RPAREN Block ELSE Block .)
+    BREAK           reduce using rule 23 (Statement -> IF LPAREN Expression RPAREN Block ELSE Block .)
+    CONTINUE        reduce using rule 23 (Statement -> IF LPAREN Expression RPAREN Block ELSE Block .)
+    LBRACE          reduce using rule 23 (Statement -> IF LPAREN Expression RPAREN Block ELSE Block .)
+    IDENTIFIER      reduce using rule 23 (Statement -> IF LPAREN Expression RPAREN Block ELSE Block .)
+    CALLOUT         reduce using rule 23 (Statement -> IF LPAREN Expression RPAREN Block ELSE Block .)
+    RBRACE          reduce using rule 23 (Statement -> IF LPAREN Expression RPAREN Block ELSE Block .)
+
+
+state 143
+
+    (46) CalloutArgList -> CalloutArg COMMA CalloutArgList .
+
+    RPAREN          reduce using rule 46 (CalloutArgList -> CalloutArg COMMA CalloutArgList .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for INT in state 4 resolved as shift
+WARNING: shift/reduce conflict for BOOLEAN in state 4 resolved as shift
+WARNING: shift/reduce conflict for VOID in state 5 resolved as shift
+WARNING: shift/reduce conflict for INT in state 5 resolved as shift
+WARNING: shift/reduce conflict for BOOLEAN in state 5 resolved as shift
+WARNING: shift/reduce conflict for INT in state 6 resolved as shift
+WARNING: shift/reduce conflict for BOOLEAN in state 6 resolved as shift
+WARNING: shift/reduce conflict for VOID in state 12 resolved as shift
+WARNING: shift/reduce conflict for INT in state 12 resolved as shift
+WARNING: shift/reduce conflict for BOOLEAN in state 12 resolved as shift
+WARNING: shift/reduce conflict for INT in state 38 resolved as shift
+WARNING: shift/reduce conflict for BOOLEAN in state 38 resolved as shift
+WARNING: shift/reduce conflict for IF in state 42 resolved as shift
+WARNING: shift/reduce conflict for WHILE in state 42 resolved as shift
+WARNING: shift/reduce conflict for RETURN in state 42 resolved as shift
+WARNING: shift/reduce conflict for BREAK in state 42 resolved as shift
+WARNING: shift/reduce conflict for CONTINUE in state 42 resolved as shift
+WARNING: shift/reduce conflict for IDENTIFIER in state 42 resolved as shift
+WARNING: shift/reduce conflict for CALLOUT in state 42 resolved as shift
+WARNING: shift/reduce conflict for LBRACE in state 42 resolved as shift
+WARNING: shift/reduce conflict for INT in state 43 resolved as shift
+WARNING: shift/reduce conflict for BOOLEAN in state 43 resolved as shift
+WARNING: shift/reduce conflict for IF in state 48 resolved as shift
+WARNING: shift/reduce conflict for WHILE in state 48 resolved as shift
+WARNING: shift/reduce conflict for RETURN in state 48 resolved as shift
+WARNING: shift/reduce conflict for BREAK in state 48 resolved as shift
+WARNING: shift/reduce conflict for CONTINUE in state 48 resolved as shift
+WARNING: shift/reduce conflict for IDENTIFIER in state 48 resolved as shift
+WARNING: shift/reduce conflict for CALLOUT in state 48 resolved as shift
+WARNING: shift/reduce conflict for LBRACE in state 48 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 125 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 125 resolved as shift
+WARNING: shift/reduce conflict for MULTIPLY in state 125 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 125 resolved as shift
+WARNING: shift/reduce conflict for MODULO in state 125 resolved as shift
+WARNING: shift/reduce conflict for SHIFT_L in state 125 resolved as shift
+WARNING: shift/reduce conflict for SHIFT_R in state 125 resolved as shift
+WARNING: shift/reduce conflict for LSHIFT_R in state 125 resolved as shift
+WARNING: shift/reduce conflict for GREATER in state 125 resolved as shift
+WARNING: shift/reduce conflict for LESS in state 125 resolved as shift
+WARNING: shift/reduce conflict for GREATER_EQUAL in state 125 resolved as shift
+WARNING: shift/reduce conflict for LESS_EQUAL in state 125 resolved as shift
+WARNING: shift/reduce conflict for EQUAL in state 125 resolved as shift
+WARNING: shift/reduce conflict for NOT_EQUAL in state 125 resolved as shift
+WARNING: shift/reduce conflict for LOGICAL_AND in state 125 resolved as shift
+WARNING: shift/reduce conflict for LOGICAL_OR in state 125 resolved as shift

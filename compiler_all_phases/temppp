@@ -1,0 +1,30 @@
+    if items[0] == 'var_decl' :
+        symbol_table_semantic.append({
+            "type" : items[1][1] ,
+            "var" : items[2],
+            "value" : None,
+
+        })
+    for item in items:
+        if type(item) == tuple:
+            check_items(item)
+
+
+
+
+global symbol_table_semantic
+
+symbol_table_semantic = []
+
+def init(parser_result):          #parser result --> ast (phase 3)
+    check_items(parser_result)
+
+def check_items(ast):
+    if ast == 'Program' :
+        print(ast)
+    for item in ast:
+        if type(item) == tuple :
+            check_items(item)
+
+
+
